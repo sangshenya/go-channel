@@ -342,6 +342,39 @@
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/chromedp/chromedp@v0.5.3/testdata/visible.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/chromedp/chromedp@v0.5.3/util.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/chromedp/chromedp@v0.5.3/util_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/dgrijalva/jwt-go@v3.2.0+incompatible/claims.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/dgrijalva/jwt-go@v3.2.0+incompatible/cmd/jwt/app.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/dgrijalva/jwt-go@v3.2.0+incompatible/cmd/jwt/args.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/dgrijalva/jwt-go@v3.2.0+incompatible/doc.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/dgrijalva/jwt-go@v3.2.0+incompatible/ecdsa.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/dgrijalva/jwt-go@v3.2.0+incompatible/ecdsa_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/dgrijalva/jwt-go@v3.2.0+incompatible/ecdsa_utils.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/dgrijalva/jwt-go@v3.2.0+incompatible/errors.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/dgrijalva/jwt-go@v3.2.0+incompatible/example_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/dgrijalva/jwt-go@v3.2.0+incompatible/hmac.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/dgrijalva/jwt-go@v3.2.0+incompatible/hmac_example_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/dgrijalva/jwt-go@v3.2.0+incompatible/hmac_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/dgrijalva/jwt-go@v3.2.0+incompatible/http_example_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/dgrijalva/jwt-go@v3.2.0+incompatible/map_claims.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/dgrijalva/jwt-go@v3.2.0+incompatible/none.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/dgrijalva/jwt-go@v3.2.0+incompatible/none_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/dgrijalva/jwt-go@v3.2.0+incompatible/parser.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/dgrijalva/jwt-go@v3.2.0+incompatible/parser_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/dgrijalva/jwt-go@v3.2.0+incompatible/request/doc.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/dgrijalva/jwt-go@v3.2.0+incompatible/request/extractor.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/dgrijalva/jwt-go@v3.2.0+incompatible/request/extractor_example_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/dgrijalva/jwt-go@v3.2.0+incompatible/request/extractor_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/dgrijalva/jwt-go@v3.2.0+incompatible/request/oauth2.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/dgrijalva/jwt-go@v3.2.0+incompatible/request/request.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/dgrijalva/jwt-go@v3.2.0+incompatible/request/request_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/dgrijalva/jwt-go@v3.2.0+incompatible/rsa.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/dgrijalva/jwt-go@v3.2.0+incompatible/rsa_pss.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/dgrijalva/jwt-go@v3.2.0+incompatible/rsa_pss_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/dgrijalva/jwt-go@v3.2.0+incompatible/rsa_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/dgrijalva/jwt-go@v3.2.0+incompatible/rsa_utils.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/dgrijalva/jwt-go@v3.2.0+incompatible/signing_method.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/dgrijalva/jwt-go@v3.2.0+incompatible/test/helpers.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/dgrijalva/jwt-go@v3.2.0+incompatible/token.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/gin-gonic/gin@v1.6.2/go.mod" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/gin-gonic/gin@v1.6.3/go.mod" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/glycerine/go-unsnap-stream@v0.0.0-20181221182339-f9677308dec2/cmd/deflate/deflate.go" afterDir="false" />
@@ -1518,6 +1551,7 @@
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/golang.org/x/net@v0.0.0-20200520004742-59133d7f0dd7/go.mod" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/golang.org/x/sys@v0.0.0-20200116001909-b77594299b42/go.mod" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/golang.org/x/sys@v0.0.0-20200117145432-59e60aa80a0c/go.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/golang.org/x/sys@v0.0.0-20200323222414-85ca7c5b95cd/go.mod" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/golang.org/x/sys@v0.0.0-20200602225109-6fdc65e7d980/go.mod" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/golang.org/x/text@v0.3.2/go.mod" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/gopkg.in/yaml.v2@v2.2.8/go.mod" afterDir="false" />
@@ -1534,7 +1568,28 @@
       <change afterPath="$PROJECT_DIR$/../ad-jump/redis/redis.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../ad-jump/util/client.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../ad-jump/util/register_server.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ad-jump/util/time.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../ad-jump/util/util.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ad-ssp-channel-source/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ad-ssp-channel-source/ad-ssp-channel-source" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ad-ssp-channel-source/channel_source/channel_source.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ad-ssp-channel-source/config/config_dev.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ad-ssp-channel-source/config/config_pro.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ad-ssp-channel-source/database/cache.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ad-ssp-channel-source/database/mysql.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ad-ssp-channel-source/deployment.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ad-ssp-channel-source/deployment_dev.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ad-ssp-channel-source/go.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ad-ssp-channel-source/go.sum" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ad-ssp-channel-source/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ad-ssp-channel-source/model/response_msg.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ad-ssp-channel-source/model/user_msg.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ad-ssp-channel-source/userinfo/userinfo.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ad-ssp-channel-source/util/eureka.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ad-ssp-channel-source/util/register_service.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ad-ssp-channel-source/util/request.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ad-ssp-channel-source/util/route_register.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ad-ssp-channel-source/util/util.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../ad/across/across.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../ad/across/adreq.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../ad/across/adres.go" afterDir="false" />
@@ -1558,6 +1613,9 @@
       <change afterPath="$PROJECT_DIR$/../ad/qudu/adreq.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../ad/qudu/adres.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../ad/qudu/qudu.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ad/shxg/adreq.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ad/shxg/adres.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ad/shxg/shxg.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../ad/util/ip_tool.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../ad/xingrui/adreq.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../ad/xingrui/adres.go" afterDir="false" />
@@ -1776,8 +1834,11 @@
       <change afterPath="$PROJECT_DIR$/../mail/data/mysql.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../mail/data/request.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../mail/data/taobao.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mail/data/xintui.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../mail/data_imei.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../mail/dltest1.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mail/dmp.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mail/dmp_imei.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../mail/go.mod" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../mail/go.sum" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../mail/imeidata.txt" afterDir="false" />
@@ -1788,7 +1849,9 @@
       <change afterPath="$PROJECT_DIR$/../mail/imeidata_click_taobaostartup.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../mail/imeidata_click_taobaostartup_0910.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../mail/imeidata_taobaostartup.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mail/ios.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../mail/log.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mail/rycq.txt.zip" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../mail/zfb_imei.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../sort/main.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../sortMap/sortMap.go" afterDir="false" />
@@ -2020,6 +2083,9 @@
       <change beforePath="$PROJECT_DIR$/../../smaato/smaato.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../smaatoa/adres.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../smaatoa/smaatoa.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/channel_handle/channel_handle.go" beforeDir="false" afterPath="$PROJECT_DIR$/channel_handle/channel_handle.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../tanv/adreq.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../tanv/adres.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../tanv/tanv.go" beforeDir="false" />
@@ -2857,7 +2923,7 @@
   </component>
   <component name="GOROOT" path="/usr/local/Cellar/go/1.13.4/libexec" />
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1gwpoXPhWj2TewwUmFaYlNgHt7Y" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">

@@ -21,10 +21,12 @@ var(
 
 )
 
-func RequestChannel(channelName string, getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, noFunc util.ReqNoFunc, timeoutFunc util.ReqTimeoutFunc, noimgFunc util.ReqNoimgFunc, nourlFunc util.ReqNourlFunc) util.ResMsg {
+func RequestChannel(channelName string, getReq *util.ReqMsg, channelErrorFunc util.ReqFailFunc, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, noFunc util.ReqNoFunc, timeoutFunc util.ReqTimeoutFunc, noimgFunc util.ReqNoimgFunc, nourlFunc util.ReqNourlFunc) util.ResMsg {
 	resultData := util.ResMsg{}
 	if funName, ok := FunMap[channelName]; ok {
 		resultData = funName(getReq, failFunc, reqFunc, noFunc, timeoutFunc, noimgFunc, nourlFunc)
+	} else {
+		channelErrorFunc(getReq)
 	}
 	return resultData
 }
