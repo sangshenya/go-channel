@@ -4,6 +4,7 @@ package util
 type ReqMsg struct {
 	Screenwidth  	string 					// 屏幕宽度
 	Screenheight 	string 					// 屏幕高度
+	Adtype 			string 					// 客户端请求的广告类型
 	Os           	string 					// 设备操作系统，1: Android，2：iOS，3：Windows，4：其它
 	Osversion    	string 					// 系统版本号
 	Imsi         	string 					// 网络型号1：中国移动、2：中国联通、3：中国电信
@@ -26,7 +27,6 @@ type ReqMsg struct {
 	Lat          	string 					// 经度
 	Lng          	string 					// 纬度
 	Sdkid        	string 					// 渠道号
-	Admobile     	string 					// 是否为2+1的请求
 	Imsi_long    	string 					// 新版的imsi
 	AndroidApiLevel string 					// 安卓 api level
 	Carrier         string 					// 运营商信息，前五位
