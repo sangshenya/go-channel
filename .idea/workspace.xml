@@ -911,6 +911,7 @@
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go_channel@v0.0.0-20200927061307-f3a186e79dd4/channel_handle/ymtb/adres.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go_channel@v0.0.0-20200927061307-f3a186e79dd4/channel_handle/ymtb/ymtb.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go_channel@v0.0.0-20200927061307-f3a186e79dd4/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go_channel@v0.0.0-20201022065933-f5a226b23af2/go.mod" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/tealeg/xlsx@v1.0.5/go.mod" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/tinylib/msgp@v1.1.0/_generated/convert.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/tinylib/msgp@v1.1.0/_generated/convert_test.go" afterDir="false" />
@@ -2136,7 +2137,6 @@
       <change beforePath="$PROJECT_DIR$/../../smaatoa/adres.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../smaatoa/smaatoa.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/channel_handle/util/model.go" beforeDir="false" afterPath="$PROJECT_DIR$/channel_handle/util/model.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../tanv/adreq.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../tanv/adres.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../tanv/tanv.go" beforeDir="false" />
