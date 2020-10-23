@@ -3,7 +3,7 @@ package shjy
 import (
 	"bytes"
 	"encoding/json"
-	"go-channel/channel_handle/util"
+	"go-channel/util"
 	"io/ioutil"
 	"net/http"
 	"strconv"

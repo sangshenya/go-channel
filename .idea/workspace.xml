@@ -30,21 +30,41 @@
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/cache/download/github.com/mailru/easyjson/@v/v0.7.1.lock" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/cache/download/github.com/mailru/easyjson/@v/v0.7.1.zip" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/cache/download/github.com/mailru/easyjson/@v/v0.7.1.ziphash" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/cache/download/github.com/sangshenya/go-channel/@v/list" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/cache/download/github.com/sangshenya/go-channel/@v/list.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/cache/download/github.com/sangshenya/go-channel/@v/v0.0.0-20201023021840-17124ac1cbdf.info" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/cache/download/github.com/sangshenya/go-channel/@v/v0.0.0-20201023021840-17124ac1cbdf.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/cache/download/github.com/sangshenya/go-channel/@v/v0.0.0-20201023021840-17124ac1cbdf.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/cache/download/github.com/sangshenya/go-channel/@v/v0.0.0-20201023021840-17124ac1cbdf.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/cache/download/github.com/sangshenya/go-channel/@v/v0.0.0-20201023021840-17124ac1cbdf.ziphash" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/cache/download/github.com/sangshenya/go_channel/@v/v0.0.0-20200927061307-f3a186e79dd4.info" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/cache/download/github.com/sangshenya/go_channel/@v/v0.0.0-20200927061307-f3a186e79dd4.lock" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/cache/download/github.com/sangshenya/go_channel/@v/v0.0.0-20200927061307-f3a186e79dd4.mod" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/cache/download/github.com/sangshenya/go_channel/@v/v0.0.0-20200927061307-f3a186e79dd4.zip" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/cache/download/github.com/sangshenya/go_channel/@v/v0.0.0-20200927061307-f3a186e79dd4.ziphash" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/cache/download/github.com/sangshenya/go_channel/@v/v0.0.0-20201023021840-17124ac1cbdf.info" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/cache/download/github.com/sangshenya/go_channel/@v/v0.0.0-20201023021840-17124ac1cbdf.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/cache/download/github.com/sangshenya/go_channel/@v/v0.0.0-20201023021840-17124ac1cbdf.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/cache/download/github.com/sangshenya/go_channel/@v/v0.0.0-20201023021840-17124ac1cbdf.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/cache/download/github.com/sangshenya/go_channel/@v/v0.0.0-20201023021840-17124ac1cbdf.ziphash" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/cache/download/golang.org/x/net/@v/v0.0.0-20190404232315-eb5bcb51f2a3.zip" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/cache/download/golang.org/x/net/@v/v0.0.0-20190404232315-eb5bcb51f2a3.ziphash" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/cache/download/golang.org/x/sys/@v/v0.0.0-20200117145432-59e60aa80a0c.info" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/cache/download/golang.org/x/sys/@v/v0.0.0-20200117145432-59e60aa80a0c.lock" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/cache/download/golang.org/x/sys/@v/v0.0.0-20200117145432-59e60aa80a0c.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/cache/download/sumdb/sum.golang.org/lookup/github.com/sangshenya/go-channel@v0.0.0-20201023021840-17124ac1cbdf" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/cache/download/sumdb/sum.golang.org/lookup/github.com/sangshenya/go_channel@v0.0.0-20200927061307-f3a186e79dd4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/cache/download/sumdb/sum.golang.org/lookup/github.com/sangshenya/go_channel@v0.0.0-20201023021840-17124ac1cbdf" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/cache/download/sumdb/sum.golang.org/tile/8/0/x006/342" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/cache/download/sumdb/sum.golang.org/tile/8/0/x006/512.p/45" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/cache/download/sumdb/sum.golang.org/tile/8/0/x006/809" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/cache/download/sumdb/sum.golang.org/tile/8/0/x006/821" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/cache/download/sumdb/sum.golang.org/tile/8/0/x006/821.p/98" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/cache/download/sumdb/sum.golang.org/tile/8/0/x006/824.p/14" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/cache/download/sumdb/sum.golang.org/tile/8/1/024" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/cache/download/sumdb/sum.golang.org/tile/8/1/025.p/112" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/cache/download/sumdb/sum.golang.org/tile/8/1/026.p/165" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/cache/download/sumdb/sum.golang.org/tile/8/1/026.p/168" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/cache/download/sumdb/sum.golang.org/tile/8/2/000.p/25" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/cache/vcs/2dd2c7d594e57c3b11c5a932dbd3e86f793be823a0da69b2ed74385a2e3ca4fd/info/attributes" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/cache/vcs/4620abf9c4ca1cb32217db14c56d0e097993222781d01fb05bca035945036c05/info/attributes" afterDir="false" />
@@ -888,6 +908,7 @@
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/philhofer/fwd@v1.0.0/writer_appengine.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/philhofer/fwd@v1.0.0/writer_test.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/philhofer/fwd@v1.0.0/writer_unsafe.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201023021840-17124ac1cbdf/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/channel_handle.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/inmobi/adreq.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/inmobi/adres.go" afterDir="false" />
@@ -954,6 +975,7 @@
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go_channel@v0.0.0-20201022071303-7a5c47a66f73/channel_handle/ymtb/adres.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go_channel@v0.0.0-20201022071303-7a5c47a66f73/channel_handle/ymtb/ymtb.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go_channel@v0.0.0-20201022071303-7a5c47a66f73/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go_channel@v0.0.0-20201023021840-17124ac1cbdf/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go_channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/channel_handle.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go_channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/inmobi/adreq.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go_channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/inmobi/adres.go" afterDir="false" />
@@ -1907,6 +1929,7 @@
       <change afterPath="$PROJECT_DIR$/../github.com/tealeg/xmlWorkbook_test.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../github.com/tealeg/xmlWorksheet.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../github.com/tealeg/xmlWorksheet_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/channel_handle/channel_handle.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/channel_handle/inmobi/adreq.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/channel_handle/inmobi/adres.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/channel_handle/inmobi/inmobi.go" afterDir="false" />
@@ -1941,11 +1964,6 @@
       <change afterPath="$PROJECT_DIR$/../mail/0910_data.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../mail/0910_data2.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../mail/BKDRhash/hash.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mail/channel_handle/channel_handle.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mail/channel_handle/model/model.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mail/channel_handle/ymtb/adreq.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mail/channel_handle/ymtb/adres.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mail/channel_handle/ymtb/ymtb.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../mail/data/mysql.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../mail/data/request.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../mail/data/taobao.go" afterDir="false" />
@@ -2200,6 +2218,10 @@
       <change beforePath="$PROJECT_DIR$/../../smaatoa/adres.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../smaatoa/smaatoa.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/channel_handle/shjy/shjy.go" beforeDir="false" afterPath="$PROJECT_DIR$/channel_handle/shjy/shjy.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/channel_handle/uc/uc.go" beforeDir="false" afterPath="$PROJECT_DIR$/channel_handle/uc/uc.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/channel_handle/wuque/wuque.go" beforeDir="false" afterPath="$PROJECT_DIR$/channel_handle/wuque/wuque.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/channel_handle/ymtb/ymtb.go" beforeDir="false" afterPath="$PROJECT_DIR$/channel_handle/ymtb/ymtb.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../tanv/adreq.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../tanv/adres.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../tanv/tanv.go" beforeDir="false" />
@@ -3106,6 +3128,7 @@
     </option>
   </component>
   <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
     <proxy>https://goproxy.io</proxy>
   </component>
 </project>

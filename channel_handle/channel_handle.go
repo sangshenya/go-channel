@@ -1,12 +1,12 @@
 package channel_handle
 
 import (
-	"go-channel/channel_handle/inmobi"
-	"go-channel/channel_handle/shjy"
-	"go-channel/channel_handle/uc"
-	"go-channel/channel_handle/util"
-	"go-channel/channel_handle/wuque"
-	"go-channel/channel_handle/ymtb"
+	"go-channel/inmobi"
+	"go-channel/shjy"
+	"go-channel/uc"
+	"go-channel/util"
+	"go-channel/wuque"
+	"go-channel/ymtb"
 )
 
 var(

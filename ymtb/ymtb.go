@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"go-channel/channel_handle/util"
+	"go-channel/util"
 	"io/ioutil"
 	"net/http"
 	"time"
