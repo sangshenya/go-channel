@@ -888,6 +888,27 @@
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/philhofer/fwd@v1.0.0/writer_appengine.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/philhofer/fwd@v1.0.0/writer_test.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/philhofer/fwd@v1.0.0/writer_unsafe.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/channel_handle.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/inmobi/adreq.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/inmobi/adres.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/inmobi/inmobi.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/shjy/adreq.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/shjy/adres.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/shjy/shjy.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/uc/adreq.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/uc/adres.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/uc/uc.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/util/httpRequest.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/util/model.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/util/position.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/util/tool.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/wuque/adreq.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/wuque/adres.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/wuque/wuque.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/ymtb/adreq.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/ymtb/adres.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/ymtb/ymtb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201023021840-17124ac1cbdf/main.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go_channel@v0.0.0-20200927061307-f3a186e79dd4/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go_channel@v0.0.0-20200927061307-f3a186e79dd4/README.md" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go_channel@v0.0.0-20200927061307-f3a186e79dd4/channel_handle/channel_handle.go" afterDir="false" />
@@ -933,6 +954,27 @@
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go_channel@v0.0.0-20201022071303-7a5c47a66f73/channel_handle/ymtb/adres.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go_channel@v0.0.0-20201022071303-7a5c47a66f73/channel_handle/ymtb/ymtb.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go_channel@v0.0.0-20201022071303-7a5c47a66f73/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go_channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/channel_handle.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go_channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/inmobi/adreq.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go_channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/inmobi/adres.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go_channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/inmobi/inmobi.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go_channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/shjy/adreq.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go_channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/shjy/adres.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go_channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/shjy/shjy.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go_channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/uc/adreq.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go_channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/uc/adres.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go_channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/uc/uc.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go_channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/util/httpRequest.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go_channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/util/model.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go_channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/util/position.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go_channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/util/tool.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go_channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/wuque/adreq.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go_channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/wuque/adres.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go_channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/wuque/wuque.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go_channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/ymtb/adreq.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go_channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/ymtb/adres.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go_channel@v0.0.0-20201023021840-17124ac1cbdf/channel_handle/ymtb/ymtb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go_channel@v0.0.0-20201023021840-17124ac1cbdf/main.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/tealeg/xlsx@v1.0.5/go.mod" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/tinylib/msgp@v1.1.0/_generated/convert.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/tinylib/msgp@v1.1.0/_generated/convert_test.go" afterDir="false" />
@@ -1865,19 +1907,22 @@
       <change afterPath="$PROJECT_DIR$/../github.com/tealeg/xmlWorkbook_test.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../github.com/tealeg/xmlWorksheet.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../github.com/tealeg/xmlWorksheet_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/channel_handle/channel_handle.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/channel_handle/inmobi/adreq.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/channel_handle/inmobi/adres.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/channel_handle/inmobi/inmobi.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/channel_handle/shjy/adreq.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/channel_handle/shjy/adres.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/channel_handle/shjy/shjy.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/channel_handle/uc/adreq.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/channel_handle/uc/adres.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/channel_handle/uc/uc.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/channel_handle/util/httpRequest.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/channel_handle/util/model.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/channel_handle/util/position.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/channel_handle/util/tool.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/channel_handle/wuque/adreq.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/channel_handle/wuque/adres.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/channel_handle/wuque/wuque.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/channel_handle/ymtb/adreq.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/channel_handle/ymtb/adres.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/channel_handle/ymtb/ymtb.go" afterDir="false" />
@@ -2155,12 +2200,6 @@
       <change beforePath="$PROJECT_DIR$/../../smaatoa/adres.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../smaatoa/smaatoa.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/channel_handle/inmobi/inmobi.go" beforeDir="false" afterPath="$PROJECT_DIR$/channel_handle/inmobi/inmobi.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/channel_handle/shjy/shjy.go" beforeDir="false" afterPath="$PROJECT_DIR$/channel_handle/shjy/shjy.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/channel_handle/uc/uc.go" beforeDir="false" afterPath="$PROJECT_DIR$/channel_handle/uc/uc.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/channel_handle/wuque/wuque.go" beforeDir="false" afterPath="$PROJECT_DIR$/channel_handle/wuque/wuque.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/channel_handle/ymtb/ymtb.go" beforeDir="false" afterPath="$PROJECT_DIR$/channel_handle/ymtb/ymtb.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../tanv/adreq.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../tanv/adres.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../tanv/tanv.go" beforeDir="false" />

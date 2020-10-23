@@ -13,10 +13,10 @@ var(
 
 	FunMap = map[string]func(Req *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, noFunc util.ReqNoFunc, timeoutFunc util.ReqTimeoutFunc, noimgFunc util.ReqNoimgFunc, nourlFunc util.ReqNourlFunc) util.ResMsg{
 		"inmobi":inmobi.Base,
-		"shjy":shjy.Base,
-		"uc":uc.Base,
-		"wuque":wuque.Base,
 		"ymtb":ymtb.Base,
+		"wuque":wuque.Base,
+		"uc":uc.Base,
+		"shjy":shjy.Base,
 	}
 
 )
