@@ -1,12 +1,12 @@
 package channel_handle
 
 import (
-	"github.com/sangshenya/go-channel/inmobi"
-	"github.com/sangshenya/go-channel/shjy"
-	"github.com/sangshenya/go-channel/uc"
-	"github.com/sangshenya/go-channel/util"
-	"github.com/sangshenya/go-channel/wuque"
-	"github.com/sangshenya/go-channel/ymtb"
+	"go-channel/inmobi"
+	"go-channel/shjy"
+	"go-channel/uc"
+	"go-channel/util"
+	"go-channel/wuque"
+	"go-channel/ymtb"
 )
 
 var(

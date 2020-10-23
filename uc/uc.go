@@ -3,7 +3,7 @@ package uc
 import (
 	"bytes"
 	"encoding/json"
-	"github.com/sangshenya/go-channel/util"
+	"go-channel/util"
 	"io/ioutil"
 	"net/http"
 	"strings"
