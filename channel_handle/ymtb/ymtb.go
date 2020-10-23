@@ -7,6 +7,7 @@ import (
 	"go-channel/channel_handle/util"
 	"io/ioutil"
 	"net/http"
+	"time"
 )
 
 const(
@@ -127,6 +128,7 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 	}
 
 	postData := util.ResMsg{
+		Id:       				 util.Md5(string(data) + time.Now().String()),
 		Title:                   ad.Title,
 		Content:                 ad.Title,
 		ImageUrl:                imgurl,

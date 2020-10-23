@@ -218,7 +218,7 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 	}
 
 	resultData := util.ResMsg{
-		Id:       "0",
+		Id:       util.Md5(string(data) + time.Now().String()),
 		Weight:   0,
 		State:    1,
 		Title:    title,
