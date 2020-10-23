@@ -38,6 +38,7 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 	hStr, _ := paramsMap["h"]
 
 	if len(key) == 0 || len(apptoken) == 0 || len(adid) == 0 {
+		getReq.ChannelReq.Errorinfo = "缺少必要的请求参数"
 		failFunc(getReq)
 		return util.ResMsg{}
 	}
@@ -157,6 +158,8 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 
 	ma, err := json.Marshal(&postData)
 	if err != nil {
+		getReq.ChannelReq.Errorinfo = err.Error()
+		failFunc(getReq)
 		return util.ResMsg{}
 	}
 
@@ -164,6 +167,8 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 
 	req, err := http.NewRequest("POST", URL, bytes.NewReader(ma))
 	if err != nil {
+		getReq.ChannelReq.Errorinfo = err.Error()
+		failFunc(getReq)
 		return util.ResMsg{}
 	}
 	req.Header.Set("Connection", "keep-alive")
@@ -196,13 +201,18 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 	}
 	ad := resData.Wxad
 	if ad.Image_src == "" {
-		noFunc(getReq)
+		noimgFunc(getReq)
 		return util.ResMsg{}
 	}
 
 	imgArr := strings.Split(ad.Image_src, ";")
 	if len(imgArr) == 0 || len(imgArr[0]) == 0 {
-		noFunc(getReq)
+		noimgFunc(getReq)
+		return util.ResMsg{}
+	}
+
+	if len(ad.Landing_page_url) == 0 {
+		nourlFunc(getReq)
 		return util.ResMsg{}
 	}
 
@@ -213,21 +223,23 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 		Title:    ad.Ad_title,
 		Content:  ad.Description,
 		ImageUrl: imgArr[0],
-		Uri:      replaceLdp(ad.Landing_page_url, getReq.Screenwidth, getReq.Screenheight, wStr, hStr),
+		Uri:      replaceLdp(ad.Landing_page_url, wStr, hStr),
 	}
 	if resultData.Title == "" {
 		resultData.Title = "ad"
 	}
 
 	if ad.Deep_link != "" {
-		resultData.Scheme = ad.Deep_link
-		resultData.Schemereport = ad.Dp_success_track_urls
+		resultData.Scheme = replaceLdp(ad.Deep_link, wStr, hStr)
+		for _, item := range ad.Dp_success_track_urls {
+			resultData.Schemereport = append(resultData.Schemereport, replaceLdp(item, wStr, hStr))
+		}
 	}
 
 	resultData.Displayreport = ad.Win_notice_url
 
 	for _, v := range ad.Click_url {
-		resultData.Clickreport = append(resultData.Clickreport, v)
+		resultData.Clickreport = append(resultData.Clickreport, replaceLdp(v, wStr, hStr))
 	}
 
 	if ad.Interaction_type == 5 || ad.Interaction_type == 3 {
@@ -236,39 +248,24 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 		}
 
 		for _, v := range ad.Download_track_urls {
-			resultData.StartDownload = append(resultData.StartDownload, replaceClickId(v))
+			resultData.StartDownload = append(resultData.StartDownload, replaceLdp(v, wStr, hStr))
 		}
 		for _, v := range ad.Downloaded_track_urls {
-			resultData.Downloaded = append(resultData.Downloaded, replaceClickId(v))
+			resultData.Downloaded = append(resultData.Downloaded, replaceLdp(v, wStr, hStr))
 		}
 		for _, v := range ad.Installed_track_urls {
-			resultData.Installed = append(resultData.Installed, replaceClickId(v))
+			resultData.Installed = append(resultData.Installed, replaceLdp(v, wStr, hStr))
 		}
 		for _, v := range ad.Open_track_urls {
-			resultData.Installed = append(resultData.Installed, replaceClickId(v))
+			resultData.Installed = append(resultData.Installed, replaceLdp(v, wStr, hStr))
 		}
 	}
 	return resultData
 }
 
-func replaceLdp(urlStr, sw, sh, width, height string) string {
-	swInt, _ := strconv.Atoi(sw)
-	hInt, _ := strconv.Atoi(height)
-	wInt, _ := strconv.Atoi(width)
-	h := swInt * hInt / wInt
-	urlStr = strings.Replace(urlStr, "__WIDTH__", sw, -1)
-	urlStr = strings.Replace(urlStr, "__HEIGHT__", strconv.Itoa(h), -1)
+func replaceLdp(urlStr, width, height string) string {
 	urlStr = strings.Replace(urlStr, "__REQ_WIDTH__", width, -1)
 	urlStr = strings.Replace(urlStr, "__REQ_HEIGHT__", height, -1)
-	urlStr = strings.Replace(urlStr, "__DOWN_X__", "IT_CLK_PNT_DOWN_X", -1)
-	urlStr = strings.Replace(urlStr, "__DOWN_X__", "IT_CLK_PNT_DOWN_X", -1)
-	urlStr = strings.Replace(urlStr, "__DOWN_Y__", "IT_CLK_PNT_DOWN_Y", -1)
-	urlStr = strings.Replace(urlStr, "__UP_X__", "IT_CLK_PNT_UP_X", -1)
-	urlStr = strings.Replace(urlStr, "__UP_Y__", "IT_CLK_PNT_UP_Y", -1)
-	return urlStr
-}
-
-func replaceClickId (urlStr string) string {
 	urlStr = strings.Replace(urlStr, "__CLICKID__", "__CLICK_ID__", -1)
 	return urlStr
 }

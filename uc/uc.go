@@ -52,6 +52,7 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 	h, _ := paramsMap["h"]
 
 	if len(adid) == 0 || len(wid) == 0 {
+		getReq.ChannelReq.Errorinfo = "请求必需参数中部分参数为空"
 		failFunc(getReq)
 		return util.ResMsg{}
 	}
@@ -108,6 +109,7 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 
 	ma, err := json.Marshal(&postData)
 	if err != nil {
+		getReq.ChannelReq.Errorinfo = err.Error()
 		failFunc(getReq)
 		return util.ResMsg{}
 	}
@@ -119,6 +121,7 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 
 	req, err := http.NewRequest("POST", URL, bytes.NewReader(append(byteData, ma...)))
 	if err != nil {
+		getReq.ChannelReq.Errorinfo = err.Error()
 		failFunc(getReq)
 		return util.ResMsg{}
 	}
@@ -161,12 +164,12 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 	ad := slot_ad.Ad[0]
 
 	if len(ad.Ad_content.Img_1) == 0 {
-		noFunc(getReq)
+		noimgFunc(getReq)
 		return util.ResMsg{}
 	}
 
 	if len(ad.Turl) == 0 {
-		noFunc(getReq)
+		nourlFunc(getReq)
 		return util.ResMsg{}
 	}
 
@@ -177,23 +180,23 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 		Title:    ad.Ad_content.Title,
 		Content:  ad.Ad_content.Description,
 		ImageUrl: ad.Ad_content.Img_1,
-		Uri:      replace(ad.Turl[0], false),
+		Uri:      replace(ad.Turl[0]),
 	}
 
 	if len(ad.Turl) >= 2 {
-		resultData.Uri = replace(ad.Turl[1], false)
+		resultData.Uri = replace(ad.Turl[1])
 	}
 
 	for _, item := range ad.Vurl {
-		resultData.Displayreport = append(resultData.Displayreport, replace(item, true))
+		resultData.Displayreport = append(resultData.Displayreport, replace(item))
 	}
 
 	for _, item := range ad.Curl {
-		resultData.Clickreport = append(resultData.Clickreport, replace(item, false))
+		resultData.Clickreport = append(resultData.Clickreport, replace(item))
 	}
 
 	for _, item := range ad.Turl {
-		resultData.Clickreport = append(resultData.Clickreport, replace(item, false))
+		resultData.Clickreport = append(resultData.Clickreport, replace(item))
 	}
 
 	resultData.StartDownload = append(resultData.StartDownload, ad.Eurl + "&client_event=download_begin")
@@ -203,14 +206,7 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 	return resultData
 }
 
-func replace(urlStr string, imp bool) string {
-	timeArray := util.GetTime()
-
-	if imp {
-		urlStr = strings.Replace(urlStr, "{TS}", timeArray[1], -1)
-	} else {
-		urlStr = strings.Replace(urlStr, "{TS}", timeArray[2], -1)
-	}
-
+func replace(urlStr string) string {
+	urlStr = strings.Replace(urlStr, "{TS}", "__TS__", -1)
 	return urlStr
 }

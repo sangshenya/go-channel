@@ -74,6 +74,7 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 	h, _ := paramsMap["h"]
 
 	if len(adid) == 0 || len(pkg) == 0 || len(adType) == 0 {
+		getReq.ChannelReq.Errorinfo = "请求必需参数部分参数为空"
 		failFunc(getReq)
 		return util.ResMsg{}
 	}
@@ -153,12 +154,14 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 
 	ma, err := json.Marshal(&postData)
 	if err != nil{
+		getReq.ChannelReq.Errorinfo = err.Error()
 		failFunc(getReq)
 		return util.ResMsg{}
 	}
 
 	req, err := http.NewRequest("POST", URL, bytes.NewReader(ma))
 	if err != nil {
+		getReq.ChannelReq.Errorinfo = err.Error()
 		failFunc(getReq)
 		return util.ResMsg{}
 	}
@@ -210,10 +213,13 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 		scheme = ad.LandingURL
 	}
 
-	pos := util.CreateAbScreenWHPos(getReq.Screenwidth, getReq.Screenheight, adType)
-
 	if len(img) == 0 {
 		noFunc(getReq)
+		return util.ResMsg{}
+	}
+
+	if len(ldp) == 0 {
+		nourlFunc(getReq)
 		return util.ResMsg{}
 	}
 
@@ -224,49 +230,45 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 		Title:    title,
 		Content:  content,
 		ImageUrl: img,
-		Uri:      ldp,
+		Uri:      replace(ldp, w, h),
 	}
 
 	if ad.OpenExternal {
 		resultData.Scheme = scheme
-		resultData.Schemereport = ad.EventTracking.DplSuccess
+		for _, item := range ad.EventTracking.DplSuccess {
+			resultData.Schemereport = append(resultData.Schemereport, replace(item, w, h))
+		}
 	}
 
-	resultData.Displayreport = ad.EventTracking.ImpressionTrackers
+	for _, item := range ad.EventTracking.ImpressionTrackers {
+		resultData.Displayreport = append(resultData.Displayreport, replace(item, w, h))
+	}
 
 	for _,clickUrl := range ad.EventTracking.ClickTrackers {
-		resultData.Clickreport = append(resultData.Clickreport, replace(clickUrl, w, h, pos))
+		resultData.Clickreport = append(resultData.Clickreport, replace(clickUrl, w, h))
 	}
 
 	for _,downloadUrl := range ad.EventTracking.DownloadStart{
-		resultData.StartDownload = append(resultData.StartDownload, replace(downloadUrl, w, h, pos))
+		resultData.StartDownload = append(resultData.StartDownload, replace(downloadUrl, w, h))
 	}
 
 	for _,downloadUrl := range ad.EventTracking.DownloadFinish{
-		resultData.Downloaded = append(resultData.Downloaded, replace(downloadUrl, w, h, pos))
+		resultData.Downloaded = append(resultData.Downloaded, replace(downloadUrl, w, h))
 	}
 
 	for _,downloadUrl := range ad.EventTracking.InstallFinish{
-		resultData.Installed = append(resultData.Installed, replace(downloadUrl, w, h, pos))
+		resultData.Installed = append(resultData.Installed, replace(downloadUrl, w, h))
 	}
 
 	return resultData
 }
 
-func replace(urlStr, w, h string, pos [10]string) string {
-
-	urlStr = strings.Replace(urlStr, "__DOWN_X__", "IT_CLK_PNT_DOWN_X", -1)
-	urlStr = strings.Replace(urlStr, "__DOWN_Y__", "IT_CLK_PNT_DOWN_Y", -1)
-	urlStr = strings.Replace(urlStr, "__UP_X__", "IT_CLK_PNT_UP_X", -1)
-	urlStr = strings.Replace(urlStr, "__UP_Y__", "IT_CLK_PNT_UP_Y", -1)
-
-
-	urlStr = strings.Replace(urlStr, "__WIDTH__", pos[8], -1)
-	urlStr = strings.Replace(urlStr, "__HEIGHT__", pos[9], -1)
+func replace(urlStr string, w, h string) string {
 
 	urlStr = strings.Replace(urlStr, "__REQ_WIDTH__", w, -1)
 	urlStr = strings.Replace(urlStr, "__REQ_HEIGHT__", h, -1)
 
-	urlStr = strings.Replace(urlStr, "$TS", strconv.Itoa(int(time.Now().Unix() * 1000)), -1)
+	urlStr = strings.Replace(urlStr, "$TS", "__TS__", -1)
 	return urlStr
 }
+

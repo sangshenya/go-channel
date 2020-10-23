@@ -3,7 +3,6 @@ package ymtb
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
 	"github.com/sangshenya/go-channel/util"
 	"io/ioutil"
 	"net/http"
@@ -46,6 +45,7 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 	channelid := getReq.ChannelReq.Appid
 
 	if len(pid) == 0 || len(channelid) == 0 {
+		getReq.ChannelReq.Errorinfo = "缺少请求必需参数"
 		failFunc(getReq)
 		return util.ResMsg{}
 	}
@@ -73,12 +73,15 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 
 	ma, error := json.Marshal(postdata)
 	if error != nil {
+		getReq.ChannelReq.Errorinfo = error.Error()
 		failFunc(getReq)
 		return util.ResMsg{}
 	}
 
 	req, err := http.NewRequest("POST", URL, bytes.NewReader(ma))
 	if err != nil {
+		getReq.ChannelReq.Errorinfo = err.Error()
+		failFunc(getReq)
 		return util.ResMsg{}
 	}
 	//req.Header.Set("X-Forwarded-For", getReq.Ip)
@@ -90,7 +93,6 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 	reqFunc(getReq)
 
 	if err != nil {
-		fmt.Println("请求错误",err)
 		noFunc(getReq)
 		return util.ResMsg{}
 	}
@@ -123,7 +125,12 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 	}
 
 	if len(imgurl) == 0 {
-		noFunc(getReq)
+		noimgFunc(getReq)
+		return util.ResMsg{}
+	}
+
+	if len(ad.Clk_url) == 0 {
+		nourlFunc(getReq)
 		return util.ResMsg{}
 	}
 

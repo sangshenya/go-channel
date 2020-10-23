@@ -64,6 +64,7 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 	h, _ := paramsMap["h"]
 
 	if len(adid) == 0 || len(appid) == 0 || len(adtype) == 0 {
+		getReq.ChannelReq.Errorinfo = "请求必需参数部分参数为空"
 		failFunc(getReq)
 		return util.ResMsg{}
 	}
@@ -122,12 +123,14 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 
 	ma, err := json.Marshal(&postData)
 	if err != nil {
+		getReq.ChannelReq.Errorinfo = err.Error()
 		failFunc(getReq)
 		return util.ResMsg{}
 	}
 
 	req,err := http.NewRequest("POST", URL, bytes.NewReader(ma))
 	if err != nil {
+		getReq.ChannelReq.Errorinfo = err.Error()
 		failFunc(getReq)
 		return util.ResMsg{}
 	}
@@ -213,7 +216,12 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 	}
 
 	if len(imgurl) == 0 {
-		noFunc(getReq)
+		noimgFunc(getReq)
+		return util.ResMsg{}
+	}
+
+	if len(ldp) == 0 {
+		nourlFunc(getReq)
 		return util.ResMsg{}
 	}
 
