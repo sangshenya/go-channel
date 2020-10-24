@@ -1981,25 +1981,31 @@
       <change afterPath="$PROJECT_DIR$/../github.com/tealeg/xmlWorkbook_test.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../github.com/tealeg/xmlWorksheet.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../github.com/tealeg/xmlWorksheet_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/channel_handle/channel_handle.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/inmobi/adreq.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/inmobi/adres.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/inmobi/inmobi.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/oneway/adreq.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/oneway/adres.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/oneway/oneway.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/shjy/adreq.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/shjy/adres.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shjy/shjy.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/uc/adreq.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/uc/adres.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uc/uc.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/util/httpRequest.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/util/model.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/util/position.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/util/tool.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/wuque/adreq.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/wuque/adres.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wuque/wuque.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/ymtb/adreq.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/ymtb/adres.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ymtb/ymtb.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../go_study/main.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../go_study/one/pipe.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../go_study/two/redis.go" afterDir="false" />
@@ -2268,12 +2274,6 @@
       <change beforePath="$PROJECT_DIR$/../../smaatoa/adres.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../smaatoa/smaatoa.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/channel_handle/channel_handle.go" beforeDir="false" afterPath="$PROJECT_DIR$/channel_handle/channel_handle.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inmobi/inmobi.go" beforeDir="false" afterPath="$PROJECT_DIR$/inmobi/inmobi.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shjy/shjy.go" beforeDir="false" afterPath="$PROJECT_DIR$/shjy/shjy.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uc/uc.go" beforeDir="false" afterPath="$PROJECT_DIR$/uc/uc.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuque/wuque.go" beforeDir="false" afterPath="$PROJECT_DIR$/wuque/wuque.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ymtb/ymtb.go" beforeDir="false" afterPath="$PROJECT_DIR$/ymtb/ymtb.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../tanv/adreq.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../tanv/adres.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../tanv/tanv.go" beforeDir="false" />

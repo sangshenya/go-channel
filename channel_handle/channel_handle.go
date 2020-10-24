@@ -2,6 +2,7 @@ package channel_handle
 
 import (
 	"github.com/sangshenya/go-channel/inmobi"
+	"github.com/sangshenya/go-channel/oneway"
 	"github.com/sangshenya/go-channel/shjy"
 	"github.com/sangshenya/go-channel/uc"
 	"github.com/sangshenya/go-channel/util"
@@ -41,6 +42,7 @@ var(
 		"wuque":wuque.Base,
 		"uc":uc.Base,
 		"shjy":shjy.Base,
+		"oneway":oneway.Base,
 	}
 
 )
@@ -50,6 +52,7 @@ func RequestChannel(channelName string, getReq *util.ReqMsg, channelErrorFunc ut
 	if funName, ok := FunMap[channelName]; ok {
 		resultData = funName(getReq, failFunc, reqFunc, noFunc, timeoutFunc, noimgFunc, nourlFunc)
 	} else {
+		getReq.ChannelReq.Errorinfo = "渠道号未匹配"
 		channelErrorFunc(getReq)
 	}
 	return resultData
