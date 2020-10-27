@@ -43,6 +43,7 @@ var(
 		"uc":uc.Base,
 		"shjy":shjy.Base,
 		"oneway":oneway.Base,
+		"跃盟":ymtb.Base,
 	}
 
 )

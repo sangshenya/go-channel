@@ -697,6 +697,54 @@
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/golang/snappy@v0.0.1/golden_test.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/golang/snappy@v0.0.1/snappy.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/golang/snappy@v0.0.1/snappy_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/cmpopts/equate.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/cmpopts/ignore.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/cmpopts/sort.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/cmpopts/struct_filter.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/cmpopts/util_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/cmpopts/xform.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/compare.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/compare_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/example_reporter_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/example_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/export_panic.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/export_unsafe.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/internal/diff/debug_disable.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/internal/diff/debug_enable.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/internal/diff/diff.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/internal/diff/diff_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/internal/flags/flags.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/internal/flags/toolchain_legacy.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/internal/flags/toolchain_recent.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/internal/function/func.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/internal/function/func_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/internal/testprotos/protos.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/internal/teststructs/foo1/foo.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/internal/teststructs/foo2/foo.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/internal/teststructs/project1.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/internal/teststructs/project2.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/internal/teststructs/project3.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/internal/teststructs/project4.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/internal/teststructs/structs.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/internal/value/name.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/internal/value/name_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/internal/value/pointer_purego.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/internal/value/pointer_unsafe.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/internal/value/sort.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/internal/value/sort_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/internal/value/zero.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/internal/value/zero_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/options.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/options_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/path.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/report.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/report_compare.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/report_references.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/report_reflect.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/report_slices.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/report_text.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/cmp/report_value.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/google/go-cmp@v0.5.0/go.mod" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/gopherjs/gopherjs@v0.0.0-20190910122728-9d188e94fb99/compiler/analysis/bool.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/gopherjs/gopherjs@v0.0.0-20190910122728-9d188e94fb99/compiler/analysis/break.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/gopherjs/gopherjs@v0.0.0-20190910122728-9d188e94fb99/compiler/analysis/escape.go" afterDir="false" />
@@ -982,6 +1030,31 @@
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201023082109-d7bde9865764/ymtb/adreq.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201023082109-d7bde9865764/ymtb/adres.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201023082109-d7bde9865764/ymtb/ymtb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201024061354-029e1204afbe/channel_handle/channel_handle.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201024061354-029e1204afbe/go.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201024061354-029e1204afbe/inmobi/adreq.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201024061354-029e1204afbe/inmobi/adres.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201024061354-029e1204afbe/inmobi/inmobi.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201024061354-029e1204afbe/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201024061354-029e1204afbe/oneway/adreq.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201024061354-029e1204afbe/oneway/adres.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201024061354-029e1204afbe/oneway/oneway.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201024061354-029e1204afbe/shjy/adreq.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201024061354-029e1204afbe/shjy/adres.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201024061354-029e1204afbe/shjy/shjy.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201024061354-029e1204afbe/uc/adreq.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201024061354-029e1204afbe/uc/adres.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201024061354-029e1204afbe/uc/uc.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201024061354-029e1204afbe/util/httpRequest.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201024061354-029e1204afbe/util/model.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201024061354-029e1204afbe/util/position.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201024061354-029e1204afbe/util/tool.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201024061354-029e1204afbe/wuque/adreq.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201024061354-029e1204afbe/wuque/adres.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201024061354-029e1204afbe/wuque/wuque.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201024061354-029e1204afbe/ymtb/adreq.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201024061354-029e1204afbe/ymtb/adres.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v0.0.0-20201024061354-029e1204afbe/ymtb/ymtb.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go_channel@v0.0.0-20200927061307-f3a186e79dd4/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go_channel@v0.0.0-20200927061307-f3a186e79dd4/README.md" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go_channel@v0.0.0-20200927061307-f3a186e79dd4/channel_handle/channel_handle.go" afterDir="false" />
@@ -1857,7 +1930,9 @@
       <change afterPath="$PROJECT_DIR$/../admobile-statistics/go.mod" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../admobile-statistics/go.sum" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../admobile-statistics/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../admobile-statistics/model/model.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../admobile-statistics/redis/redis.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../admobile-statistics/statistics/migration_data.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../admobile-statistics/util/client.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../admobile-statistics/util/register_server.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../admobile-statistics/util/util.go" afterDir="false" />
