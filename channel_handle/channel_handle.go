@@ -3,7 +3,9 @@ package channel_handle
 import (
 	"github.com/sangshenya/go-channel/inmobi"
 	"github.com/sangshenya/go-channel/oneway"
+	"github.com/sangshenya/go-channel/qrqm"
 	"github.com/sangshenya/go-channel/shjy"
+	"github.com/sangshenya/go-channel/test"
 	"github.com/sangshenya/go-channel/uc"
 	"github.com/sangshenya/go-channel/util"
 	"github.com/sangshenya/go-channel/wuque"
@@ -44,6 +46,8 @@ var(
 		"shjy":shjy.Base,
 		"oneway":oneway.Base,
 		"跃盟":ymtb.Base,
+		"test":test.Base,
+		"qrqm":qrqm.Base,
 	}
 
 )
