@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-var Timeout = 950 * time.Millisecond
+var Timeout = 600 * time.Millisecond
 var roundtrip = &http.Transport{
 	TLSClientConfig: &tls.Config{
 		InsecureSkipVerify: true,
