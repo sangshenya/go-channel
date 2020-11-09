@@ -47,6 +47,9 @@ var(
 		"oneway":oneway.Base,
 		"跃盟":ymtb.Base,
 		"test":test.Base,
+		"testscheme":test.SchemeBase,
+		"testdownload":test.DownloadBase,
+		"testgdtdownload":test.GDTDownloadBase,
 		"qrqm":qrqm.Base,
 	}
 
