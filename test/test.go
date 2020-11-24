@@ -10,12 +10,12 @@ type adInfo struct {
 	Content string
 	ImageUrl string
 }
-
+// "",""
 func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, noFunc util.ReqNoFunc, timeoutFunc util.ReqTimeoutFunc, noimgFunc util.ReqNoimgFunc, nourlFunc util.ReqNourlFunc) util.ResMsg {
 
 	adinfo := adInfo{
 		Title:    "大牌好货,每满300减40立即前往",
-		Content:  "每满300减40立即前往",
+		Content:  "每满300减40立即前往，普通测试广告",
 		ImageUrl: "https://img.admobile.top/admobile-adRequest/dhh_1.png",
 	}
 
@@ -26,7 +26,7 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 		Title:    adinfo.Title,
 		Content:  adinfo.Content,
 		ImageUrl: adinfo.ImageUrl,
-		Uri:      "https://s.click.taobao.com/1P4Jjuu",
+		Uri:      "https://pages.tmall.com/wow/a/act/tmall/dailygroup/1773/wupr?wh_pid=daily-218058&activity_id=100000000145",
 	}
 
 	switch getReq.ChannelReq.Adtype {

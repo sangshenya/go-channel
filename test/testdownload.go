@@ -8,7 +8,7 @@ import (
 var adinfo_download = adInfo{
 	Title:    "下载测试",
 	Content:  "网上厨房-好用的美食菜谱",
-	ImageUrl: "https://pic.ecook.cn/test_flow.jpg",
+	ImageUrl: "https://pic.ecook.cn/ad_test_S.jpg",
 }
 
 func DownloadBase(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, noFunc util.ReqNoFunc, timeoutFunc util.ReqTimeoutFunc, noimgFunc util.ReqNoimgFunc, nourlFunc util.ReqNourlFunc) util.ResMsg {
@@ -29,9 +29,9 @@ func DownloadBase(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.R
 
 	switch getReq.ChannelReq.Adtype {
 	case "flow":
-		resultData.ImageUrl = "https://admobile.oss-cn-hangzhou.aliyuncs.com/admobile-adRequest/tbdhh_fz.jpg"
+		resultData.ImageUrl = "https://pic.ecook.cn/test_flow.jpg"
 	case "banner":
-		resultData.ImageUrl = "https://admobile.oss-cn-hangzhou.aliyuncs.com/admobile-adRequest/71911590995175_.pic_hd.jpg"
+		resultData.ImageUrl = "https://pic.ecook.cn/test_banner.jpg"
 	}
 
 	if len(resultData.ImageUrl) == 0 {
@@ -56,7 +56,7 @@ func GDTDownloadBase(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc uti
 		Id:       util.Md5(util.GetRandom() + time.Now().String()),
 		Weight:   0,
 		State:    0,
-		Title:    adinfo_download.Title,
+		Title:    "广点通下载测试",
 		Content:  adinfo_download.Content,
 		ImageUrl: adinfo_download.ImageUrl,
 		Uri:      "http://c.gdt.qq.com/gdt_mclick.fcg?viewid=S4iZOkpHQgRseIqymvFIAbdFlZTY2YWMYBCSeWEIcQtKdF67MRxwyaw2b9CcxCwGqLyVjYy3MAnTmheaSY0xWdraZpqhZUqENErv81VxkFQE_bcbjE2lJTfwPEkPoUSb9bU8RID9BI4QFMopEgs!2krkZR9qo7q!0lLcQ9pKBvLPQQQ!zIMwTnnHc8!m8a_t1wv1VEZBkk4&jtype=0&i=1&os=2&asi=%7B%22mf%22%3A%22%E5%BA%B7%E4%BD%B3%22%7D&acttype=1&s=%7B%22req_width%22%3A%22300%22%2C%22req_height%22%3A%22250%22%2C%22width%22%3A%22300%22%2C%22height%22%3A%22250%22%2C%22down_x%22%3A%22__DOWN_X__%22%2C%22down_y%22%3A%22__DOWN_Y__%22%2C%22up_x%22%3A%22__UP_X__%22%2C%22up_y%22%3A%22__UP_Y__%22%7DIT_CLK_PNT_DOWN_X",
@@ -64,9 +64,9 @@ func GDTDownloadBase(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc uti
 
 	switch getReq.ChannelReq.Adtype {
 	case "flow":
-		resultData.ImageUrl = "https://admobile.oss-cn-hangzhou.aliyuncs.com/admobile-adRequest/tbdhh_fz.jpg"
+		resultData.ImageUrl = "https://pic.ecook.cn/test_flow.jpg"
 	case "banner":
-		resultData.ImageUrl = "https://admobile.oss-cn-hangzhou.aliyuncs.com/admobile-adRequest/71911590995175_.pic_hd.jpg"
+		resultData.ImageUrl = "https://pic.ecook.cn/test_banner.jpg"
 	}
 
 	if len(resultData.ImageUrl) == 0 {
