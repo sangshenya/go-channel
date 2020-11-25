@@ -80,6 +80,8 @@ func GDTDownloadBase(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc uti
 		return util.ResMsg{}
 	}
 
+	resultData.Json = true
+
 	resultData.StartDownload = []string{"https://www.baidu.com?IT_CLK_PNT_DOWN_XaaaIT_CLK_PNT_DOWN_YaaaIT_CLK_PNT_UP_XaaaIT_CLK_PNT_UP_Y", "http://t.gdt.qq.com/conv/alliance/api/conv?client=6&action_id=5&click_id=__CLICK_ID__&product_id=100812722"}
 	resultData.Downloaded = []string{"https://www.baidu.com?IT_CLK_PNT_DOWN_XaaaIT_CLK_PNT_DOWN_YaaaIT_CLK_PNT_UP_XaaaIT_CLK_PNT_UP_Y", "http://t.gdt.qq.com/conv/alliance/api/conv?client=6&action_id=6&click_id=__CLICK_ID__&product_id=100812722"}
 	resultData.Installed = []string{"https://www.baidu.com?IT_CLK_PNT_DOWN_XaaaIT_CLK_PNT_DOWN_YaaaIT_CLK_PNT_UP_XaaaIT_CLK_PNT_UP_Y", "http://t.gdt.qq.com/conv/alliance/api/conv?client=6&action_id=7&click_id=__CLICK_ID__&product_id=100812722"}
