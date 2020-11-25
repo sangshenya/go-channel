@@ -12,7 +12,7 @@ var adinfo_download = adInfo{
 }
 
 func DownloadBase(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, noFunc util.ReqNoFunc, timeoutFunc util.ReqTimeoutFunc, noimgFunc util.ReqNoimgFunc, nourlFunc util.ReqNourlFunc) util.ResMsg {
-
+	reqFunc(getReq)
 	resultData := util.ResMsg{
 		Id:       util.Md5(util.GetRandom() + time.Now().String()),
 		Weight:   0,
@@ -48,6 +48,7 @@ func DownloadBase(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.R
 }
 
 func GDTDownloadBase(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, noFunc util.ReqNoFunc, timeoutFunc util.ReqTimeoutFunc, noimgFunc util.ReqNoimgFunc, nourlFunc util.ReqNourlFunc) util.ResMsg {
+	reqFunc(getReq)
 	if getReq.Os == "2" {
 		noFunc(getReq)
 		return util.ResMsg{}

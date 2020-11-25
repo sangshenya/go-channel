@@ -6,7 +6,7 @@ import (
 )
 
 func SchemeBase(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, noFunc util.ReqNoFunc, timeoutFunc util.ReqTimeoutFunc, noimgFunc util.ReqNoimgFunc, nourlFunc util.ReqNourlFunc) util.ResMsg {
-
+	reqFunc(getReq)
 	adinfo := adInfo{
 		Title:    "scheme测试",
 		Content:  "潮流新品 造型新主张",

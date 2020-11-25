@@ -12,7 +12,7 @@ type adInfo struct {
 }
 // "",""
 func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, noFunc util.ReqNoFunc, timeoutFunc util.ReqTimeoutFunc, noimgFunc util.ReqNoimgFunc, nourlFunc util.ReqNourlFunc) util.ResMsg {
-
+	reqFunc(getReq)
 	adinfo := adInfo{
 		Title:    "大牌好货,每满300减40立即前往",
 		Content:  "每满300减40立即前往，普通测试广告",
