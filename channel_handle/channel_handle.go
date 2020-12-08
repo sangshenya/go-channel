@@ -1,6 +1,7 @@
 package channel_handle
 
 import (
+	"github.com/sangshenya/go-channel/dongqiudi"
 	"github.com/sangshenya/go-channel/inmobi"
 	"github.com/sangshenya/go-channel/oneway"
 	"github.com/sangshenya/go-channel/qrqm"
@@ -51,6 +52,7 @@ var(
 		"testdownload":test.DownloadBase,
 		"testgdtdownload":test.GDTDownloadBase,
 		"qrqm":qrqm.Base,
+		"dongqiudi":dongqiudi.Base,
 	}
 
 )
