@@ -31,21 +31,18 @@ import (
 */
 
 const(
-	TS = "__TS__"
-	TSS = "__TS_S__"
+	TS = "EVENT_TIME"
+	TSS = "EVENT_TIME"
 
-	DX = "__DOWN_X__"
-	DY = "__DOWN_Y__"
-	UX = "__UP_X__"
-	UY = "__UP_Y__"
+	DX = "IT_CLK_PNT_DOWN_X"
+	DY = "IT_CLK_PNT_DOWN_Y"
+	UX = "IT_CLK_PNT_UP_X"
+	UY = "IT_CLK_PNT_UP_Y"
 
-	RDX = "__RE_DOWN_X__"
-	RDY = "__RE_DOWN_Y__"
-	RUX = "__RE_UP_X__"
-	RUY = "__RE_UP_Y__"
-
-	WID = "__WIDTH__"
-	HIG = "__HEIGHT__"
+	RDX = "IT_CLK_PNT_DOWN_SX"
+	RDY = "IT_CLK_PNT_DOWN_SY"
+	RUX = "IT_CLK_PNT_UP_SX"
+	RUY = "IT_CLK_PNT_UP_SY"
 
 	CLKID = "__CLICK_ID__"
 )

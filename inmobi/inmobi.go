@@ -268,7 +268,7 @@ func replace(urlStr string, w, h string) string {
 	urlStr = strings.Replace(urlStr, "__REQ_WIDTH__", w, -1)
 	urlStr = strings.Replace(urlStr, "__REQ_HEIGHT__", h, -1)
 
-	urlStr = strings.Replace(urlStr, "$TS", "__TS__", -1)
+	urlStr = strings.Replace(urlStr, "$TS", util.TS, -1)
 	return urlStr
 }
 

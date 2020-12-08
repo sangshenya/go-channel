@@ -327,6 +327,8 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 		return util.ResMsg{}
 	}
 
+	pos := util.CreateAbScreenPosWHWithOs(getReq.Screenwidth, getReq.Screenheight, adtype, getReq.Os)
+
 	resultData := util.ResMsg{
 		Id:       "0",
 		Weight:   0,
@@ -334,7 +336,7 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 		Title:    title,
 		Content:  content,
 		ImageUrl: imgUrl,
-		Uri:      replace(clickUrl),
+		Uri:      replace(clickUrl, pos),
 	}
 
 	if len(ad.DeepLink) != 0 {
@@ -349,41 +351,41 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 	displayArray := []string{}
 	clickArray := []string{}
 	for _, item := range impArr {
-		displayArray = append(displayArray, replace(item))
+		displayArray = append(displayArray, replace(item, pos))
 	}
 
 	for _, item := range clkArr {
-		clickArray = append(clickArray, replace(item))
+		clickArray = append(clickArray, replace(item, pos))
 	}
 
 	resultData.Displayreport = displayArray
 	resultData.Clickreport = clickArray
 
 	for _, item := range ad.Events.Sdls {
-		resultData.StartDownload = append(resultData.StartDownload, replace(item))
+		resultData.StartDownload = append(resultData.StartDownload, replace(item, pos))
 	}
 
 	for _, item := range ad.Events.Edls {
-		resultData.Downloaded = append(resultData.Downloaded, replace(item))
+		resultData.Downloaded = append(resultData.Downloaded, replace(item, pos))
 	}
 
 	for _, item := range ad.Events.Sils {
-		resultData.Installed = append(resultData.Installed, replace(item))
+		resultData.Installed = append(resultData.Installed, replace(item, pos))
 	}
 
 	for _, item := range ad.Events.Eils {
-		resultData.Installed = append(resultData.Installed, replace(item))
+		resultData.Installed = append(resultData.Installed, replace(item, pos))
 	}
 
 	for _, item := range ad.Events.Ials {
-		resultData.Open = append(resultData.Open, replace(item))
+		resultData.Open = append(resultData.Open, replace(item, pos))
 	}
 
 	return resultData
 
 }
 
-func replace(urlStr string) string {
+func replace(urlStr string, pos [10]string) string {
 
 	urlStr = strings.Replace(urlStr, "__TS__", util.TS, -1)
 	urlStr = strings.Replace(urlStr, "__AZMTS__", util.TS, -1)
@@ -402,11 +404,11 @@ func replace(urlStr string) string {
 	urlStr = strings.Replace(urlStr, "__DSCY__", util.RUY, -1)
 
 
-	urlStr = strings.Replace(urlStr, "__AMVW__", util.WID, -1)
-	urlStr = strings.Replace(urlStr, "__AMVH__", util.HIG, -1)
+	urlStr = strings.Replace(urlStr, "__AMVW__", pos[8], -1)
+	urlStr = strings.Replace(urlStr, "__AMVH__", pos[9], -1)
 
-	urlStr = strings.Replace(urlStr, "__AMSW__", util.WID, -1)
-	urlStr = strings.Replace(urlStr, "__AMSH__", util.HIG, -1)
+	urlStr = strings.Replace(urlStr, "__AMSW__", pos[8], -1)
+	urlStr = strings.Replace(urlStr, "__AMSH__", pos[9], -1)
 
 	return urlStr
 }

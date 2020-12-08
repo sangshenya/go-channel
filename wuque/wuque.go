@@ -266,6 +266,6 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 func replaceLdp(urlStr, width, height string) string {
 	urlStr = strings.Replace(urlStr, "__REQ_WIDTH__", width, -1)
 	urlStr = strings.Replace(urlStr, "__REQ_HEIGHT__", height, -1)
-	urlStr = strings.Replace(urlStr, "__CLICKID__", "__CLICK_ID__", -1)
+	urlStr = strings.Replace(urlStr, "__CLICKID__", util.CLKID, -1)
 	return urlStr
 }

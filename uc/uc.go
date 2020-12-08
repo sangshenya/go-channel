@@ -207,6 +207,6 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 }
 
 func replace(urlStr string) string {
-	urlStr = strings.Replace(urlStr, "{TS}", "__TS__", -1)
+	urlStr = strings.Replace(urlStr, "{TS}", util.TS, -1)
 	return urlStr
 }

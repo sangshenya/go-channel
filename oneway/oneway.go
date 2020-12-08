@@ -242,16 +242,16 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 
 func replace(urlStr string) string {
 
-	urlStr = strings.Replace(urlStr, "__TIMESTAMP__", "__TS__", -1)
-	urlStr = strings.Replace(urlStr, "__C_UP_TIME__", "__TS__", -1)
+	urlStr = strings.Replace(urlStr, "__TIMESTAMP__", util.TS, -1)
+	urlStr = strings.Replace(urlStr, "__C_UP_TIME__", util.TS, -1)
 
-	urlStr = strings.Replace(urlStr, "__C_DOWN_OFFSET_X__", "__DOWN_X__", -1)
-	urlStr = strings.Replace(urlStr, "__C_DOWN_OFFSET_Y__", "__DOWN_Y__", -1)
+	urlStr = strings.Replace(urlStr, "__C_DOWN_OFFSET_X__", util.DX, -1)
+	urlStr = strings.Replace(urlStr, "__C_DOWN_OFFSET_Y__", util.DY, -1)
 
-	urlStr = strings.Replace(urlStr, "__C_DOWN_X__", "__RE_DOWN_X__", -1)
-	urlStr = strings.Replace(urlStr, "__C_DOWN_Y__", "__RE_DOWN_Y__", -1)
-	urlStr = strings.Replace(urlStr, "__C_UP_X__", "__RE_UP_X__", -1)
-	urlStr = strings.Replace(urlStr, "__C_UP_Y__", "__RE_UP_Y__", -1)
+	urlStr = strings.Replace(urlStr, "__C_DOWN_X__", util.RDX, -1)
+	urlStr = strings.Replace(urlStr, "__C_DOWN_Y__", util.RDY, -1)
+	urlStr = strings.Replace(urlStr, "__C_UP_X__", util.RUX, -1)
+	urlStr = strings.Replace(urlStr, "__C_UP_Y__", util.RUY, -1)
 
 	return urlStr
 }
