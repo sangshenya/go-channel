@@ -9,6 +9,7 @@ import (
 	"net/http"
 	"strconv"
 	"strings"
+	"time"
 )
 
 const(
@@ -330,7 +331,7 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 	pos := util.CreateAbScreenPosWHWithOs(getReq.Screenwidth, getReq.Screenheight, adtype, getReq.Os)
 
 	resultData := util.ResMsg{
-		Id:       "0",
+		Id:       util.Md5(string(data) + time.Now().String()),
 		Weight:   0,
 		State:    0,
 		Title:    title,
