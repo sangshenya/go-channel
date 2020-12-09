@@ -203,6 +203,13 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 	resultData.Downloaded = append(resultData.Downloaded, ad.Eurl + "&client_event=download_done")
 	resultData.Installed = append(resultData.Installed, ad.Eurl + "&client_event=install_begin")
 
+
+	if resultData.ResponseDataIsEmpty(getReq.Adtype) {
+		getReq.ChannelReq.Errorinfo = "数据不完整"
+		noimgFunc(getReq)
+		return util.ResMsg{}
+	}
+
 	return resultData
 }
 

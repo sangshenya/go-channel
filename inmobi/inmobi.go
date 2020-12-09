@@ -260,6 +260,12 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 		resultData.Installed = append(resultData.Installed, replace(downloadUrl, w, h))
 	}
 
+	if resultData.ResponseDataIsEmpty(getReq.Adtype) {
+		getReq.ChannelReq.Errorinfo = "数据不完整"
+		noimgFunc(getReq)
+		return util.ResMsg{}
+	}
+
 	return resultData
 }
 

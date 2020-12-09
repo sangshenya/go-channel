@@ -382,6 +382,12 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 		resultData.Open = append(resultData.Open, replace(item, pos))
 	}
 
+	if resultData.ResponseDataIsEmpty(getReq.Adtype) {
+		getReq.ChannelReq.Errorinfo = "数据不完整"
+		noimgFunc(getReq)
+		return util.ResMsg{}
+	}
+
 	return resultData
 
 }

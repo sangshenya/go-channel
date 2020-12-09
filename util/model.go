@@ -100,3 +100,18 @@ type BaseObj struct {
 	NourlFunc ReqNourlFunc
 
 }
+
+func (res *ResMsg) ResponseDataIsEmpty(adtype string) bool {
+	if adtype == "noticead" || adtype == "innernoticead" {
+		if (res.Uri == "" && res.Scheme == "") || res.ImageUrl == "" {
+
+			return true
+		}
+	} else {
+		if res.ImageUrl == "" || res.Uri == "" {
+			return true
+		}
+	}
+
+	return false
+}

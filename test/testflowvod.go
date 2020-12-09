@@ -5,13 +5,13 @@ import (
 	"time"
 )
 
-type adInfo struct {
-	Title string
-	Content string
-	ImageUrl string
-}
 // "",""
-func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, noFunc util.ReqNoFunc, timeoutFunc util.ReqTimeoutFunc, noimgFunc util.ReqNoimgFunc, nourlFunc util.ReqNourlFunc) util.ResMsg {
+func Baseflowvod(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, noFunc util.ReqNoFunc, timeoutFunc util.ReqTimeoutFunc, noimgFunc util.ReqNoimgFunc, nourlFunc util.ReqNourlFunc) util.ResMsg {
+	if getReq.ChannelReq.Adtype != "flow" {
+		getReq.ChannelReq.Errorinfo = "只支持flow类型"
+		failFunc(getReq)
+		return util.ResMsg{}
+	}
 	reqFunc(getReq)
 	adinfo := adInfo{
 		Title:    "大牌好货,每满300减40立即前往",
@@ -30,10 +30,9 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 	}
 
 	switch getReq.ChannelReq.Adtype {
-		case "flow":
-			resultData.ImageUrl = "https://admobile.oss-cn-hangzhou.aliyuncs.com/admobile-adRequest/tbdhh_fz.jpg"
-		case "banner":
-			resultData.ImageUrl = "https://admobile.oss-cn-hangzhou.aliyuncs.com/admobile-adRequest/71911590995175_.pic_hd.jpg"
+	case "flow":
+		resultData.ImageUrl = "https://admobile.oss-cn-hangzhou.aliyuncs.com/admobile-adRequest/tbdhh_fz.jpg"
+		resultData.Videourl = "https://video-ecook.oss-cn-hangzhou.aliyuncs.com/apple_ad_60s.mp4"
 	}
 
 	if len(resultData.ImageUrl) == 0 {

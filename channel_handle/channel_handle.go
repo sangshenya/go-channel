@@ -53,6 +53,7 @@ var(
 		"testgdtdownload":test.GDTDownloadBase,
 		"qrqm":qrqm.Base,
 		"dongqiudi":dongqiudi.Base,
+		"testflowvod":test.Baseflowvod,
 	}
 
 )

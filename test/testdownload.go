@@ -44,6 +44,13 @@ func DownloadBase(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.R
 		return util.ResMsg{}
 	}
 
+
+	if resultData.ResponseDataIsEmpty(getReq.Adtype) {
+		getReq.ChannelReq.Errorinfo = "数据不完整"
+		noimgFunc(getReq)
+		return util.ResMsg{}
+	}
+
 	return resultData
 }
 
@@ -87,5 +94,12 @@ func GDTDownloadBase(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc uti
 	resultData.Installed = []string{"https://www.baidu.com?IT_CLK_PNT_DOWN_XaaaIT_CLK_PNT_DOWN_YaaaIT_CLK_PNT_UP_XaaaIT_CLK_PNT_UP_Y", "http://t.gdt.qq.com/conv/alliance/api/conv?client=6&action_id=7&click_id=__CLICK_ID__&product_id=100812722"}
 	resultData.Open = []string{"https://www.baidu.com?IT_CLK_PNT_DOWN_XaaaIT_CLK_PNT_DOWN_YaaaIT_CLK_PNT_UP_XaaaIT_CLK_PNT_UP_Y"}
 
+
+
+	if resultData.ResponseDataIsEmpty(getReq.Adtype) {
+		getReq.ChannelReq.Errorinfo = "数据不完整"
+		noimgFunc(getReq)
+		return util.ResMsg{}
+	}
 	return resultData
 }
