@@ -34,6 +34,12 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 			resultData.ImageUrl = "https://admobile.oss-cn-hangzhou.aliyuncs.com/admobile-adRequest/tbdhh_fz.jpg"
 		case "banner":
 			resultData.ImageUrl = "https://admobile.oss-cn-hangzhou.aliyuncs.com/admobile-adRequest/71911590995175_.pic_hd.jpg"
+		case "noticead":
+			resultData.Title = "京东主页，浮窗测试广告标题"
+			resultData.Content = "京东主页，浮窗测试广告描述"
+			resultData.ImageUrl = "https://img.admobile.top/admobile-adRequest/jd_icon.png"
+			resultData.Uri = "https://www.jd.com"
+			resultData.Scheme = "openapp.jdmobile://"
 	}
 
 	if len(resultData.ImageUrl) == 0 {
@@ -49,7 +55,7 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 
 	if resultData.ResponseDataIsEmpty(getReq.Adtype) {
 		getReq.ChannelReq.Errorinfo = "数据不完整"
-		noimgFunc(getReq)
+		noFunc(getReq)
 		return util.ResMsg{}
 	}
 

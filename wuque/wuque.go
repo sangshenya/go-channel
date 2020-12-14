@@ -263,7 +263,7 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 
 	if resultData.ResponseDataIsEmpty(getReq.Adtype) {
 		getReq.ChannelReq.Errorinfo = "数据不完整"
-		noimgFunc(getReq)
+		noFunc(getReq)
 		return util.ResMsg{}
 	}
 	return resultData

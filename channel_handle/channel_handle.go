@@ -51,9 +51,9 @@ var(
 		"testscheme":test.SchemeBase,
 		"testdownload":test.DownloadBase,
 		"testgdtdownload":test.GDTDownloadBase,
+		"testvideo":test.BaseRewardvod,
 		"qrqm":qrqm.Base,
 		"dongqiudi":dongqiudi.Base,
-		"testflowvod":test.Baseflowvod,
 	}
 
 )

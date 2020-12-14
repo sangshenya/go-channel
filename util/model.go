@@ -57,26 +57,43 @@ type ChannelMsg struct {
 }
 
 type ResMsg struct {
-	Id            string   `json:"id"`                      // "0"
-	Weight        int      `json:"weight"`                  // 0
-	State         int      `json:"state"`                   // 1
-	Title         string   `json:"title"`                   // 标题
-	Content       string   `json:"content"`                 // 描述
-	ImageUrl      string   `json:"imageUrl"`                // 图片url
-	Uri           string   `json:"uri"`                     // 落地页
-	Displayreport []string `json:"displayreport"`           // 展示上报地址
-	Clickreport   []string `json:"clickreport"`             // 点击上报地址
-	StartDownload []string `json:"startDownload,omitempty"` // 开始下载
-	Downloaded    []string `json:"downloaded,omitempty"`    // 下载完成
-	Installed     []string `json:"installed,omitempty"`     // 安装完成
-	Open          []string `json:"open,omitempty"`          // 打开app
-	Json          bool     `json:"json"`                    // 下载类返回json格式标示
-	Scheme        string   `json:"scheme"`                  // scheme地址
-	Schemereport  []string `json:"schemereport,omitempty"`  // scheme上报地址
-	Pkg           string   `json:"pkg"`                     // 包名
-	ImageList     []string `json:"imageList"`               // 图组
-	AdClickType   int	   `json:"adClickType"`        		// 广告点击处理类型，0：落地页广告；1：下载类广告；2：deeplink类广告
-	Videourl 	  string   `json:"video_url"` 				//信息流视频播放地址
+	Id            			string   	`json:"id"`                     				// "0"
+	Weight        			int      	`json:"weight"`                 				// 0
+	State         			int      	`json:"state"`                  				// 1
+	Title         			string   	`json:"title"`                   				// 标题
+	Content       			string   	`json:"content"`                 				// 描述
+	ImageUrl      			string   	`json:"imageUrl"`               				// 图片url
+	Uri           			string   	`json:"uri"`                     				// 落地页
+	Displayreport 			[]string 	`json:"displayreport"`           				// 展示上报地址
+	Clickreport   			[]string 	`json:"clickreport"`             				// 点击上报地址
+	StartDownload 			[]string 	`json:"startDownload,omitempty"` 				// 开始下载
+	Downloaded    			[]string 	`json:"downloaded,omitempty"`    				// 下载完成
+	Installed     			[]string 	`json:"installed,omitempty"`     				// 安装完成
+	Open          			[]string 	`json:"open,omitempty"`          				// 打开app
+	Json          			bool     	`json:"json"`                    				// 下载类返回json格式标示
+	Scheme        			string   	`json:"scheme"`                  				// scheme地址
+	Schemereport  			[]string 	`json:"schemereport,omitempty"`  				// scheme上报地址
+	Pkg           			string   	`json:"pkg"`                     				// 包名
+	ImageList     			[]string 	`json:"imageList"`               				// 图组
+	// 视频Video
+	VideoUrl 				string 		`json:"videoUrl,omitempty"`						//视频播放链接
+	VideoEndHtml			string 		`json:"videoEndHtml,omitempty"`					//视频播放完成最后展示的卡片html
+	VideoLoadedReport		[]string 	`json:"videoLoadedReport,omitempty"` 			//视频加载完成上报，判断视频资源可以播放后上报
+	VideoStartReport 		[]string 	`json:"videoStartReport,omitempty"`				//播放开始上报
+	VideoQuarterReport 		[]string 	`json:"videoQuarterReport,omitempty"`			//播放四分之一上报
+	VideoHalfReport			[]string 	`json:"videoHalfReport,omitempty"`				//播放二分之一上报
+	VideoThreeQuarterReport []string 	`json:"videoThreeQuarterReport,omitempty"` 		//播放四分之三上报
+	VideoFinishReport		[]string 	`json:"videoFinishReport,omitempty"`			//播放完成上报
+	VideoSkipReport 		[]string 	`json:"videoSkipReport,omitempty"`				//视频跳过上报
+	VideoCacheErrorReport   []string 	`json:"videoCacheErrorReport,omitempty"`		//视频缓存错误上报
+	VideoPlayingErrorReport []string 	`json:"videoPlayingErrorReport,omitempty"`		//视频播放错误上报
+	VideoCloseReport 		[]string 	`json:"videoCloseReport,omitempty"`				//视频关闭上报
+	VideoMuteReport         []string 	`json:"videoMuteReport,omitempty"`				//视频静音上报
+	VideoUnmuteReport 		[]string 	`json:"videoUnmuteReport,omitempty"`			//视频非静音播放
+	VideoCallBackReport		[]string 	`json:"videoCallBackReport,omitempty"`			//视频激励验证回调，此字段只有在使用服务器激励回调时会 返回。
+	Duration   				int 		`json:"duration,omitempty"`						//视频时长，单位为：s
+	VideoSize 				int64 		`json:"videoSize,omitempty"`					//视频大小
+
 }
 
 type ReqFailFunc func(msg *ReqMsg)
@@ -104,7 +121,10 @@ type BaseObj struct {
 func (res *ResMsg) ResponseDataIsEmpty(adtype string) bool {
 	if adtype == "noticead" || adtype == "innernoticead" {
 		if (res.Uri == "" && res.Scheme == "") || res.ImageUrl == "" {
-
+			return true
+		}
+	} else if adtype == "vod" {
+		if res.ImageUrl == "" || res.Uri == "" || len(res.VideoUrl) == 0 {
 			return true
 		}
 	} else {
