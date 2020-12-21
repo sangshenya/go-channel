@@ -15,7 +15,7 @@ func BaseRewardvod(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.
 		Title:    "抖音短视频，激励视频测试素材标题",
 		Content:  "抖音两分钟，现实两小时，激励视频测试素材描述",
 		ImageUrl: "https://img.admobile.top/admobile-adRequest/douyin.png",
-		Uri:      "http://oss-cdn.halomobi.com/public/ap9a3f8ce8830255bfc/com.ss.android.ugc.aweme.apk",
+		Uri:      "https://at.umeng.com/yyWDiy?cid=4944",
 		Duration: 13,
 		VideoUrl: "http://video-ad.sm.cn/38560410a55748f58356284317a86208/5146645ddc904cf18906e24384e34c78-4d7cdb48cf1619d99b743366e70333b4-ld.mp4",
 		Displayreport: []string{
@@ -62,6 +62,10 @@ func BaseRewardvod(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.
 		VideoThreeQuarterReport: []string{
 			"https://adx.halomobi.com/ssp/report?t=video_play_third_quartile&h=59860B68B4A7B1DF6D746D86B0AA4F9FDD532F1FE45917224129979FB09DA2171EAD63C9576A3C8E1841B4AC82F921EFEE82F5DE1155CEDB92EDE7F4E9BFDDC71F7EE435A8C2E00635C614EAB15865331F497A46E459B0839C6DC5D3AE2AE964647E51EBA5D0007FEB570006F35F8A9E5D0B42F51278A1A2498A6C067082D235C171F836B0DABBA1A191709C688703B0339CDECB35522A8E79843811AB9FEFC94FF46681E86FD008F78AC66928BBA871E284E43024277DFFD05DFFF3087FCF5ADF02EDC27EBD9478D8B620B8ADEF3FE3FDB879DD5084F47B868EB3B0951E90F40332C860205780F551E3F34D2AE0B05AF172BCB9E2819635&m=__TS_S__,__TS__",
 		},
+	}
+
+	if getReq.Os == "2" {
+		resultData.Uri = "https://itunes.apple.com/cn/app/id455221304"
 	}
 
 	if resultData.ResponseDataIsEmpty(getReq.Adtype) {
