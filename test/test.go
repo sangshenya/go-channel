@@ -61,3 +61,21 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 
 	return resultData
 }
+
+func TestVideoFlow(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, noFunc util.ReqNoFunc, timeoutFunc util.ReqTimeoutFunc, noimgFunc util.ReqNoimgFunc, nourlFunc util.ReqNourlFunc) util.ResMsg {
+	reqFunc(getReq)
+	if getReq.ChannelReq.Adtype != "flow" {
+		getReq.ChannelReq.Errorinfo = "不支持flow以外的类型请求"
+		return util.ResMsg{}
+	}
+	resultData := Base(getReq, failFunc, reqFunc, noFunc, timeoutFunc, noimgFunc, nourlFunc)
+	resultData.VideoUrl = "http://video-ad.sm.cn/38560410a55748f58356284317a86208/5146645ddc904cf18906e24384e34c78-4d7cdb48cf1619d99b743366e70333b4-ld.mp4"
+
+	if resultData.ResponseDataIsEmpty(getReq.Adtype) {
+		getReq.ChannelReq.Errorinfo = "数据不完整"
+		noFunc(getReq)
+		return util.ResMsg{}
+	}
+
+	return resultData
+}

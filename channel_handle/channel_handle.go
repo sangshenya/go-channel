@@ -53,6 +53,7 @@ var(
 		"testdownload":test.DownloadBase,
 		"testgdtdownload":test.GDTDownloadBase,
 		"testvideo":test.BaseRewardvod,
+		"testvideoflow":test.TestVideoFlow,
 		"qrqm":qrqm.Base,
 		"dongqiudi":dongqiudi.Base,
 		"jdlm":jdlm.Base,
