@@ -3,6 +3,7 @@ package channel_handle
 import (
 	"github.com/sangshenya/go-channel/dongqiudi"
 	"github.com/sangshenya/go-channel/inmobi"
+	"github.com/sangshenya/go-channel/jdlm"
 	"github.com/sangshenya/go-channel/oneway"
 	"github.com/sangshenya/go-channel/qrqm"
 	"github.com/sangshenya/go-channel/shjy"
@@ -54,6 +55,7 @@ var(
 		"testvideo":test.BaseRewardvod,
 		"qrqm":qrqm.Base,
 		"dongqiudi":dongqiudi.Base,
+		"jdlm":jdlm.Base,
 	}
 
 )
