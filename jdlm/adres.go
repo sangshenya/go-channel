@@ -17,31 +17,11 @@ type LikeResultData struct {
 }
 
 type LikeMaterial struct {
-	InOrderCount30DaysSku string
-	PinGouInfo pinGouInfo
-	CategoryInfo categoryInfo
 	ResourceInfo resourceInfo
-	Spuid string
-	DeliveryType string
-	ForbidTypes string
-	SeckillInfo seckillInfo
 	SkuName string
-	BookInfo bookInfo
-	VideoInfo videoInfo
-	IsHot string
 	ImageInfo imageInfo
-	BrandCode string
-	PriceInfo priceInfo
 	ShopInfo shopInfo
-	JxFlags string
-	Owner string
-	CommissionInfo commissionInfo
-	SkuId string
-	GoodCommentsShare string
 	PromotionInfo promotionInfo
-	CouponInfo couponInfo
-	InOrderCount30Days string
-	Comments string
 }
 
 type pinGouInfo struct {
@@ -62,7 +42,6 @@ type categoryInfo struct {
 }
 
 type resourceInfo struct {
-	EliteId string
 	EliteName string
 
 }
@@ -106,16 +85,14 @@ type priceInfo struct {
 }
 
 type shopInfo struct {
-	ShopId string
 	ShopName string
-	ShopLevel string
 }
 
 type commissionInfo struct {
-	CommissionShare string
-	CouponCommission string
-	PlusCommissionShare string
-	Commission string
+	CommissionShare float64
+	CouponCommission float64
+	PlusCommissionShare float64
+	Commission float64
 }
 
 type promotionInfo struct {
@@ -123,7 +100,7 @@ type promotionInfo struct {
 }
 
 type couponInfo struct {
-	CouponList couponList
+	CouponList []couponList
 }
 
 type couponList struct {

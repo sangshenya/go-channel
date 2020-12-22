@@ -12,7 +12,7 @@ import (
 )
 
 const (
-	URL = "https://api.w.inmobi.cn/showad/v3.3"
+	URL = "https://union.api.w.inmobi.cn/showad/v3.3"
 )
 
 func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, noFunc util.ReqNoFunc, timeoutFunc util.ReqTimeoutFunc, noimgFunc util.ReqNoimgFunc, nourlFunc util.ReqNourlFunc) util.ResMsg {

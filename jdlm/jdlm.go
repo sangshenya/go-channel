@@ -125,12 +125,22 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 	}
 
 	likeResult := LikeRes{}
-	json.Unmarshal(data, &likeResult)
+	error = json.Unmarshal(data, &likeResult)
+	if error != nil {
+		getReq.ChannelReq.Errorinfo = error.Error()
+		noFunc(getReq)
+		return util.ResMsg{}
+	}
 
 	likeResultData := LikeResultData{}
 	if len(likeResult.Jd_union_open_goods_material_query_response.Result) != 0 {
 		//fmt.Println(likeResult.Jd_union_open_goods_material_query_response.Result)
-		json.Unmarshal([]byte(likeResult.Jd_union_open_goods_material_query_response.Result), &likeResultData)
+		error = json.Unmarshal([]byte(likeResult.Jd_union_open_goods_material_query_response.Result), &likeResultData)
+		if error != nil {
+			getReq.ChannelReq.Errorinfo = error.Error()
+			noFunc(getReq)
+			return util.ResMsg{}
+		}
 	} else {
 		noFunc(getReq)
 		return util.ResMsg{}

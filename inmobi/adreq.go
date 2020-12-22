@@ -80,5 +80,5 @@ type _banner struct {
 
 type _ext struct {
 	Responseformat string `json:"responseformat"`
-	SupportDeeplink bool `json:"SupportDeeplink"`
+	SupportDeeplink bool `json:"supportDeeplink"`
 }
