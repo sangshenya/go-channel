@@ -153,7 +153,7 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 	}
 
 	postData := util.ResMsg{
-		Title:                   likeData.BrandCode,
+		Title:                   likeData.ShopInfo.ShopName,
 		Content:                 likeData.SkuName,
 		ImageUrl:                likeData.ImageInfo.ImageList[0].Url,
 		Uri:                     likeData.PromotionInfo.ClickURL,

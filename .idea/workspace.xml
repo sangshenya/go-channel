@@ -2,6 +2,37 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="be15ac58-ab77-4d4b-9d8f-330e5a3a75d1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../bin/ad" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bin/ad-append" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bin/ad-deeplink" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bin/ad-jump" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bin/ad-ssp-channel-order" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bin/ad-ssp-channel-source" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bin/ad_test" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bin/admobile-deeplink" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bin/admobile-standbyad" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bin/admobile-statistics" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bin/air" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bin/bee" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bin/bidRequest.pb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bin/bidRequest.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bin/bidResponse.pb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bin/bidResponse.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bin/deeplink-tracking" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bin/getMachine" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bin/go-channel" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bin/go_channel" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bin/go_study" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bin/govendor" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bin/mail" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bin/meitu.pb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bin/meitu.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bin/otto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bin/protoc-gen-go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bin/reward-tracking" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bin/ssad" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bin/standbyad-tracking" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bin/uaData" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/cache/download/github.com/chromedp/cdproto/@v/v0.0.0-20200424080200-0de008e41fa0.info" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/cache/download/github.com/chromedp/cdproto/@v/v0.0.0-20200424080200-0de008e41fa0.lock" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/cache/download/github.com/chromedp/cdproto/@v/v0.0.0-20200424080200-0de008e41fa0.zip" afterDir="false" />
@@ -1704,6 +1735,7 @@
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v1.1.5/ymtb/adreq.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v1.1.5/ymtb/adres.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v1.1.5/ymtb/ymtb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go-channel@v1.1.7/go.mod" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go_channel@v0.0.0-20200927061307-f3a186e79dd4/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go_channel@v0.0.0-20200927061307-f3a186e79dd4/README.md" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/github.com/sangshenya/go_channel@v0.0.0-20200927061307-f3a186e79dd4/channel_handle/channel_handle.go" afterDir="false" />
@@ -7294,6 +7326,7 @@
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/golang.org/x/sys@v0.0.0-20201218084310-7d0127a74742/windows/zerrors_windows.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/golang.org/x/sys@v0.0.0-20201218084310-7d0127a74742/windows/zknownfolderids_windows.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/golang.org/x/sys@v0.0.0-20201218084310-7d0127a74742/windows/zsyscall_windows.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pkg/mod/golang.org/x/sys@v0.0.0-20201221093633-bc327ba9c2f0/go.mod" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/golang.org/x/text@v0.3.2/go.mod" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/golang.org/x/text@v0.3.3/go.mod" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../pkg/mod/golang.org/x/xerrors@v0.0.0-20200804184101-5ec99f83aff1/adaptor.go" afterDir="false" />
@@ -7634,6 +7667,7 @@
       <change afterPath="$PROJECT_DIR$/../go_test/jsparser/client.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../go_test/jsparser/main.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../gopkg.in/sourcemap.v1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lagou_test/four/four.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../lagou_test/main.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../lagou_test/one/one.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../lagou_test/three/three.go" afterDir="false" />
@@ -7905,6 +7939,7 @@
       <change beforePath="$PROJECT_DIR$/../../smaatoa/adres.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../smaatoa/smaatoa.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jdlm/jdlm.go" beforeDir="false" afterPath="$PROJECT_DIR$/jdlm/jdlm.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../tanv/adreq.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../tanv/adres.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../tanv/tanv.go" beforeDir="false" />
