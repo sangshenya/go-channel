@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-func SchemeBase(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, noFunc util.ReqNoFunc, timeoutFunc util.ReqTimeoutFunc, noimgFunc util.ReqNoimgFunc, nourlFunc util.ReqNourlFunc) util.ResMsg {
+func SchemeBase(getReq *util.ReqMsg, reqFunc util.ReqFunc) (util.ResMsg, util.ChannelErrorProtocol) {
 	reqFunc(getReq)
 	adinfo := adInfo{
 		Title:    "scheme测试",
@@ -32,20 +32,19 @@ func SchemeBase(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.Req
 	}
 
 	if len(resultData.ImageUrl) == 0 {
-		noimgFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelNoImageErrorWithText("图片链接长度为0")
+		return util.ResMsg{}, channelError
 	}
 
 	if len(resultData.Uri) == 0 {
-		nourlFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelNoUrlErrorWithText("图片链接长度为0")
+		return util.ResMsg{}, channelError
 	}
 
 	if resultData.ResponseDataIsEmpty(getReq.Adtype) {
-		getReq.ChannelReq.Errorinfo = "数据不完整"
-		noFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestNoErrorWithText("数据不完整")
+		return util.ResMsg{}, channelError
 	}
 
-	return resultData
+	return resultData, nil
 }

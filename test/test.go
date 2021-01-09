@@ -11,7 +11,7 @@ type adInfo struct {
 	ImageUrl string
 }
 // "",""
-func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, noFunc util.ReqNoFunc, timeoutFunc util.ReqTimeoutFunc, noimgFunc util.ReqNoimgFunc, nourlFunc util.ReqNourlFunc) util.ResMsg {
+func Base(getReq *util.ReqMsg, reqFunc util.ReqFunc) (util.ResMsg, util.ChannelErrorProtocol) {
 	reqFunc(getReq)
 	adinfo := adInfo{
 		Title:    "大牌好货,每满300减40立即前往",
@@ -43,39 +43,41 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 	}
 
 	if len(resultData.ImageUrl) == 0 {
-		noimgFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelNoImageErrorWithText("图片链接长度为0")
+		return util.ResMsg{}, channelError
 	}
 
 	if len(resultData.Uri) == 0 {
-		nourlFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelNoUrlErrorWithText("图片链接长度为0")
+		return util.ResMsg{}, channelError
 	}
 
 
 	if resultData.ResponseDataIsEmpty(getReq.Adtype) {
-		getReq.ChannelReq.Errorinfo = "数据不完整"
-		noFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestNoErrorWithText("数据不完整")
+		return util.ResMsg{}, channelError
 	}
 
-	return resultData
+	return resultData, nil
 }
 
-func TestVideoFlow(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, noFunc util.ReqNoFunc, timeoutFunc util.ReqTimeoutFunc, noimgFunc util.ReqNoimgFunc, nourlFunc util.ReqNourlFunc) util.ResMsg {
+func TestVideoFlow(getReq *util.ReqMsg, reqFunc util.ReqFunc) (util.ResMsg, util.ChannelErrorProtocol) {
 	reqFunc(getReq)
 	if getReq.ChannelReq.Adtype != "flow" {
 		getReq.ChannelReq.Errorinfo = "不支持flow以外的类型请求"
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestFailErrorWithText("不支持flow以外的类型请求")
+		return util.ResMsg{}, channelError
 	}
-	resultData := Base(getReq, failFunc, reqFunc, noFunc, timeoutFunc, noimgFunc, nourlFunc)
+	resultData, err := Base(getReq, reqFunc)
+	if err != nil {
+		return util.ResMsg{}, err
+	}
 	resultData.VideoUrl = "http://video-ad.sm.cn/38560410a55748f58356284317a86208/5146645ddc904cf18906e24384e34c78-4d7cdb48cf1619d99b743366e70333b4-ld.mp4"
 
 	if resultData.ResponseDataIsEmpty(getReq.Adtype) {
-		getReq.ChannelReq.Errorinfo = "数据不完整"
-		noFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestNoErrorWithText("数据不完整")
+		return util.ResMsg{}, channelError
 	}
 
-	return resultData
+	return resultData, nil
 }

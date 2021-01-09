@@ -40,7 +40,7 @@ import (
 
 var(
 
-	FunMap = map[string]func(Req *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, noFunc util.ReqNoFunc, timeoutFunc util.ReqTimeoutFunc, noimgFunc util.ReqNoimgFunc, nourlFunc util.ReqNourlFunc) util.ResMsg{
+	FunMap = map[string]func(Req *util.ReqMsg, reqFunc util.ReqFunc) (util.ResMsg, util.ChannelErrorProtocol){
 		"inmobi":inmobi.Base,
 		"ymtb":ymtb.Base,
 		"wuque":wuque.Base,
@@ -58,16 +58,14 @@ var(
 		"dongqiudi":dongqiudi.Base,
 		"jdlm":jdlm.Base,
 	}
-
 )
 
-func RequestChannel(channelName string, getReq *util.ReqMsg, channelErrorFunc util.ReqFailFunc, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, noFunc util.ReqNoFunc, timeoutFunc util.ReqTimeoutFunc, noimgFunc util.ReqNoimgFunc, nourlFunc util.ReqNourlFunc) util.ResMsg {
+func RequestChannel(channelName string, getReq *util.ReqMsg, reqFunc util.ReqFunc) (util.ResMsg, util.ChannelErrorProtocol) {
 	resultData := util.ResMsg{}
-	if funName, ok := FunMap[channelName]; ok {
-		resultData = funName(getReq, failFunc, reqFunc, noFunc, timeoutFunc, noimgFunc, nourlFunc)
-	} else {
-		getReq.ChannelReq.Errorinfo = "渠道号未匹配"
-		channelErrorFunc(getReq)
+	funName, ok := FunMap[channelName];
+	if !ok {
+		err := util.NewChannelNameErrorWithText("渠道号未匹配")
+		return resultData, err
 	}
-	return resultData
+	return funName(getReq, reqFunc)
 }

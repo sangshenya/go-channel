@@ -23,7 +23,7 @@ var ImageArray = []string{
 	"https://img.admobile.top/admobile-adRequest/4_taobao.jpg",
 }
 
-func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, noFunc util.ReqNoFunc, timeoutFunc util.ReqTimeoutFunc, noimgFunc util.ReqNoimgFunc, nourlFunc util.ReqNourlFunc) util.ResMsg {
+func Base(getReq *util.ReqMsg, reqFunc util.ReqFunc) (util.ResMsg, util.ChannelErrorProtocol) {
 
 	os := "android"
 	if getReq.Os == "2" {
@@ -46,21 +46,18 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 
 	adid := getReq.ChannelReq.Adid
 	if len(adid) == 0 {
-		getReq.ChannelReq.Errorinfo = "adid不能为空"
-		failFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestFailErrorWithText("请求必需参数adid不能为空")
+		return util.ResMsg{}, channelError
 	}
 	appkey := getReq.ChannelReq.Appid
 	if len(appkey) == 0 {
-		getReq.ChannelReq.Errorinfo = "appid不能为空"
-		failFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestFailErrorWithText("请求必需参数appid不能为空")
+		return util.ResMsg{}, channelError
 	}
 	appsecret := getReq.ChannelReq.Token
 	if len(appsecret) == 0 {
-		getReq.ChannelReq.Errorinfo = "appsecret不能为空"
-		failFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestFailErrorWithText("请求必需参数appsecret不能为空")
+		return util.ResMsg{}, channelError
 	}
 
 	req := tbreq{
@@ -81,7 +78,11 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 		Adzone_id: adid,
 	}
 
-	ma, _ := json.Marshal(&req)
+	ma, err := json.Marshal(&req)
+	if err != nil{
+		channelError := util.NewChannelRequestFailErrorError(err)
+		return util.ResMsg{}, channelError
+	}
 
 	v := CommonParam("taobao.tbk.thor.creative.launch", appkey)
 	v.Set("req", string(ma))
@@ -93,32 +94,35 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 	response, error := util.HttpGET(TAOBAO_URL + v.Encode(), &header)
 	reqFunc(getReq)
 	if error != nil {
-		getReq.ChannelReq.Errorinfo = error.Error()
-		timeoutFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestFailErrorError(error)
+		return util.ResMsg{}, channelError
 	}
 
 	data, error := ioutil.ReadAll(response.Body)
 	response.Body.Close()
 	if error != nil {
-		getReq.ChannelReq.Errorinfo = error.Error()
-		noFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestNoError(error)
+		return util.ResMsg{}, channelError
 	}
 
 	if response.StatusCode != 200 {
-		getReq.ChannelReq.Errorinfo = "状态码不为200"
-		timeoutFunc(getReq)
-		return util.ResMsg{}
+		code := response.StatusCode
+		channelError := util.NewChannelRequestNoErrorWithText("状态码为:"+ strconv.Itoa(int(code)))
+		return util.ResMsg{}, channelError
 	}
 
 	//fmt.Println("GetTaobaoQrqmData:", string(data))
 
 	resData := &tbadres{}
-	json.Unmarshal(data, resData)
+	err = json.Unmarshal(data, resData)
+	if err != nil {
+		channelError := util.NewChannelRequestNoError(err)
+		return util.ResMsg{}, channelError
+	}
+
 	if len(resData.Tbk_thor_creative_launch_response.Result.Click_through_url) == 0 {
-		nourlFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestNoErrorWithText("Click_through_url长度为0")
+		return util.ResMsg{}, channelError
 	}
 
 	imageUrl := ""
@@ -161,22 +165,21 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 	}
 
 	if len(postData.ImageUrl) == 0 {
-		noimgFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelNoImageErrorWithText("图片链接长度为0")
+		return util.ResMsg{}, channelError
 	}
 
 	if len(postData.Uri) == 0 {
-		nourlFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelNoUrlErrorWithText("图片链接长度为0")
+		return util.ResMsg{}, channelError
 	}
 
 	if postData.ResponseDataIsEmpty(getReq.Adtype) {
-		getReq.ChannelReq.Errorinfo = "数据不完整"
-		noFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestNoErrorWithText("数据不完整")
+		return util.ResMsg{}, channelError
 	}
 
-	return postData
+	return postData, nil
 }
 
 func CommonParam(method, appkey string) url.Values {

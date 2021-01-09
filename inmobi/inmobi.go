@@ -15,7 +15,7 @@ const (
 	URL = "https://union.api.w.inmobi.cn/showad/v3.3"
 )
 
-func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, noFunc util.ReqNoFunc, timeoutFunc util.ReqTimeoutFunc, noimgFunc util.ReqNoimgFunc, nourlFunc util.ReqNourlFunc) util.ResMsg {
+func Base(getReq *util.ReqMsg, reqFunc util.ReqFunc) (util.ResMsg, util.ChannelErrorProtocol) {
 	ct := 2
 	if getReq.Network == "4g" {
 		ct = 6
@@ -74,9 +74,8 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 	h, _ := paramsMap["h"]
 
 	if len(adid) == 0 || len(pkg) == 0 || len(adType) == 0 {
-		getReq.ChannelReq.Errorinfo = "请求必需参数部分参数为空"
-		failFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestFailErrorWithText("请求必需参数部分参数为空")
+		return util.ResMsg{}, channelError
 	}
 
 	postData := adreq{
@@ -154,46 +153,49 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 
 	ma, err := json.Marshal(&postData)
 	if err != nil{
-		getReq.ChannelReq.Errorinfo = err.Error()
-		failFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestFailErrorError(err)
+		return util.ResMsg{}, channelError
 	}
 
 	req, err := http.NewRequest("POST", URL, bytes.NewReader(ma))
 	if err != nil {
-		getReq.ChannelReq.Errorinfo = err.Error()
-		failFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestFailErrorError(err)
+		return util.ResMsg{}, channelError
 	}
 	req.Header.Set("Content-Type", "application/json;charset=utf-8")
 	resp, err := util.Client.Do(req)
 	reqFunc(getReq)
 
 	if err != nil {
-		timeoutFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestTimeoutError(err)
+		return util.ResMsg{}, channelError
 	}
 
 	data, err := ioutil.ReadAll(resp.Body)
 	resp.Body.Close()
 	if err != nil {
-		noFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestNoError(err)
+		return util.ResMsg{}, channelError
 	}
 
 	if resp.StatusCode != 200 {
-		noFunc(getReq)
-		return util.ResMsg{}
+		code := resp.StatusCode
+		channelError := util.NewChannelRequestNoErrorWithText("状态码为:"+ strconv.Itoa(int(code)))
+		return util.ResMsg{}, channelError
 	}
 
 	resData := adres{}
-	json.Unmarshal(data, &resData)
+	err = json.Unmarshal(data, &resData)
+	if err != nil {
+		channelError := util.NewChannelRequestNoError(err)
+		return util.ResMsg{}, channelError
+	}
 	//fmt.Println("11111,",string(res))
 
 	ads := resData.Ads
 	if len(ads) == 0 {
-		noFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestNoErrorWithText("ads长度为0")
+		return util.ResMsg{}, channelError
 	}
 
 	ad := ads[0]
@@ -214,13 +216,13 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 	}
 
 	if len(img) == 0 {
-		noFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelNoImageErrorWithText("图片链接长度为0")
+		return util.ResMsg{}, channelError
 	}
 
 	if len(ldp) == 0 {
-		nourlFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelNoUrlErrorWithText("落地页链接长度为0")
+		return util.ResMsg{}, channelError
 	}
 
 	resultData := util.ResMsg{
@@ -261,12 +263,11 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 	}
 
 	if resultData.ResponseDataIsEmpty(getReq.Adtype) {
-		getReq.ChannelReq.Errorinfo = "数据不完整"
-		noFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestNoErrorWithText("数据不完整")
+		return util.ResMsg{}, channelError
 	}
 
-	return resultData
+	return resultData, nil
 }
 
 func replace(urlStr string, w, h string) string {

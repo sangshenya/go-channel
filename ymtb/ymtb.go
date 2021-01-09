@@ -6,6 +6,7 @@ import (
 	"github.com/sangshenya/go-channel/util"
 	"io/ioutil"
 	"net/http"
+	"strconv"
 	"time"
 )
 
@@ -13,7 +14,7 @@ const(
 	URL = "https://publisher-api.deepleaper.com/goods"
 )
 
-func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, noFunc util.ReqNoFunc, timeoutFunc util.ReqTimeoutFunc, noimgFunc util.ReqNoimgFunc, nourlFunc util.ReqNourlFunc) util.ResMsg {
+func Base(getReq *util.ReqMsg, reqFunc util.ReqFunc) (util.ResMsg, util.ChannelErrorProtocol) {
 	uid := getReq.Imei
 	uidtype := "imei"
 	os := "android"
@@ -45,9 +46,8 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 	channelid := getReq.ChannelReq.Appid
 
 	if len(pid) == 0 || len(channelid) == 0 {
-		getReq.ChannelReq.Errorinfo = "缺少请求必需参数"
-		failFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestFailErrorWithText("请求必需参数部分参数为空")
+		return util.ResMsg{}, channelError
 	}
 
 	// pid=**&channelid=**
@@ -73,16 +73,14 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 
 	ma, error := json.Marshal(postdata)
 	if error != nil {
-		getReq.ChannelReq.Errorinfo = error.Error()
-		failFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestFailErrorError(error)
+		return util.ResMsg{}, channelError
 	}
 
 	req, err := http.NewRequest("POST", URL, bytes.NewReader(ma))
 	if err != nil {
-		getReq.ChannelReq.Errorinfo = err.Error()
-		failFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestFailErrorError(err)
+		return util.ResMsg{}, channelError
 	}
 	//req.Header.Set("X-Forwarded-For", getReq.Ip)
 	req.Header.Set("Connection", "keep-alive")
@@ -93,28 +91,33 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 	reqFunc(getReq)
 
 	if err != nil {
-		noFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestTimeoutError(err)
+		return util.ResMsg{}, channelError
 	}
 
 	data, err := ioutil.ReadAll(resp.Body)
 	resp.Body.Close()
 	if err != nil {
-		noFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestNoError(err)
+		return util.ResMsg{}, channelError
 	}
 
 	if resp.StatusCode != 200 {
-		noFunc(getReq)
-		return util.ResMsg{}
+		code := resp.StatusCode
+		channelError := util.NewChannelRequestNoErrorWithText("状态码为:"+ strconv.Itoa(int(code)))
+		return util.ResMsg{}, channelError
 	}
 
 	resData := &adres{}
-	json.Unmarshal(data, resData)
+	err = json.Unmarshal(data, resData)
+	if err != nil {
+		channelError := util.NewChannelRequestNoError(err)
+		return util.ResMsg{}, channelError
+	}
 
 	if resData.Status != 0 {
-		noFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestNoErrorWithText("Status不为0")
+		return util.ResMsg{}, channelError
 	}
 
 	ad := resData.Creative
@@ -125,13 +128,13 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 	}
 
 	if len(imgurl) == 0 {
-		noimgFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelNoImageErrorWithText("图片链接长度为0")
+		return util.ResMsg{}, channelError
 	}
 
 	if len(ad.Clk_url) == 0 {
-		nourlFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelNoUrlErrorWithText("落地页链接长度为0")
+		return util.ResMsg{}, channelError
 	}
 
 	postData := util.ResMsg{
@@ -145,10 +148,9 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 	}
 
 	if postData.ResponseDataIsEmpty(getReq.Adtype) {
-		getReq.ChannelReq.Errorinfo = "数据不完整"
-		noFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestNoErrorWithText("数据不完整")
+		return util.ResMsg{}, channelError
 	}
 
-	return postData
+	return postData, nil
 }

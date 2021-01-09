@@ -16,8 +16,7 @@ const (
 	URL          = "https://ads.oneway.mobi/getCampaign?"
 )
 
-func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, noFunc util.ReqNoFunc, timeoutFunc util.ReqTimeoutFunc, noimgFunc util.ReqNoimgFunc, nourlFunc util.ReqNourlFunc) util.ResMsg {
-
+func Base(getReq *util.ReqMsg, reqFunc util.ReqFunc) (util.ResMsg, util.ChannelErrorProtocol) {
 	deviceId := ""
 	os := 1
 	if getReq.Os == "2" {
@@ -68,9 +67,8 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 	}
 
 	if len(getReq.ChannelReq.Adid) == 0 || len(getReq.ChannelReq.Pkg) == 0 || len(getReq.ChannelReq.Appname) == 0 || len(getReq.ChannelReq.Appid) == 0 || len(getReq.ChannelReq.Token) == 0 {
-		getReq.ChannelReq.Errorinfo = "请求必需参数中部分参数为空"
-		failFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestFailErrorWithText("请求必需参数部分参数为空")
+		return util.ResMsg{}, channelError
 	}
 
 	postData := adreq{
@@ -110,9 +108,8 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 
 	ma, err := json.Marshal(&postData)
 	if err != nil {
-		getReq.ChannelReq.Errorinfo = err.Error()
-		failFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestFailErrorError(err)
+		return util.ResMsg{}, channelError
 	}
 
 	requestURL := URL+"publishId="+getReq.ChannelReq.Appid+"&token="+getReq.ChannelReq.Token+"&ts="+strconv.Itoa(int(time.Now().Unix()))
@@ -121,9 +118,8 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 
 	req, err := http.NewRequest("POST", requestURL, bytes.NewReader(ma))
 	if err != nil {
-		getReq.ChannelReq.Errorinfo = err.Error()
-		failFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestFailErrorError(err)
+		return util.ResMsg{}, channelError
 	}
 	req.Header.Set("Connection", "keep-alive")
 	req.Header.Set("Accept-Encoding", "gzip")
@@ -131,8 +127,8 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 	resp, err := util.Client.Do(req)
 	reqFunc(getReq)
 	if err != nil {
-		timeoutFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestTimeoutError(err)
+		return util.ResMsg{}, channelError
 	}
 
 	data := []byte{}
@@ -140,15 +136,15 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 		r, err := gzip.NewReader(resp.Body)
 		//resp.Body.Close()
 		if err != nil {
-			noFunc(getReq)
-			return util.ResMsg{}
+			channelError := util.NewChannelRequestNoError(err)
+			return util.ResMsg{}, channelError
 		}
 		defer r.Close()
 
 		data, err = ioutil.ReadAll(r)
 		if err != nil {
-			noFunc(getReq)
-			return util.ResMsg{}
+			channelError := util.NewChannelRequestNoError(err)
+			return util.ResMsg{}, channelError
 		}
 		resp.Body.Close()
 	} else {
@@ -157,37 +153,42 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 	}
 
 	if err != nil {
-		noFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestNoError(err)
+		return util.ResMsg{}, channelError
 	}
 	//fmt.Println(resp.StatusCode)
 	if resp.StatusCode != 200 {
-		timeoutFunc(getReq)
-		return util.ResMsg{}
+		code := resp.StatusCode
+		channelError := util.NewChannelRequestNoErrorWithText("状态码为:"+ strconv.Itoa(int(code)))
+		return util.ResMsg{}, channelError
 	}
 	resData := adres{}
-	json.Unmarshal(data, &resData)
+	err = json.Unmarshal(data, &resData)
+	if err != nil {
+		channelError := util.NewChannelRequestNoError(err)
+		return util.ResMsg{}, channelError
+	}
 
 	if !resData.Success {
-		noFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestNoErrorWithText("Success is false")
+		return util.ResMsg{}, channelError
 	}
 
 	ad := resData.Data
 	if len(ad.Images) == 0 {
-		noimgFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelNoImageErrorWithText("图片链接长度为0")
+		return util.ResMsg{}, channelError
 	}
 
 	image := ad.Images[0]
 	if len(image.Url) == 0 {
-		noimgFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelNoImageErrorWithText("图片链接长度为0")
+		return util.ResMsg{}, channelError
 	}
 
 	if len(ad.ClickUrl) == 0 {
-		nourlFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelNoUrlErrorWithText("图片链接长度为0")
+		return util.ResMsg{}, channelError
 	}
 
 	resultData := util.ResMsg{
@@ -238,12 +239,11 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 	}
 
 	if resultData.ResponseDataIsEmpty(getReq.Adtype) {
-		getReq.ChannelReq.Errorinfo = "数据不完整"
-		noFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestNoErrorWithText("数据不完整")
+		return util.ResMsg{}, channelError
 	}
 
-	return resultData
+	return resultData, nil
 }
 
 func replace(urlStr string) string {

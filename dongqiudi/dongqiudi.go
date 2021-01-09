@@ -20,12 +20,11 @@ const(
 
 )
 
-func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, noFunc util.ReqNoFunc, timeoutFunc util.ReqTimeoutFunc, noimgFunc util.ReqNoimgFunc, nourlFunc util.ReqNourlFunc) util.ResMsg {
+func Base(getReq *util.ReqMsg, reqFunc util.ReqFunc) (util.ResMsg, util.ChannelErrorProtocol) {
 
 	if len(getReq.Carrier) == 0 {
-		getReq.ChannelReq.Errorinfo = "请求参数运营商信息缺失"
-		failFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestFailErrorWithText("请求参数运营商信息缺失")
+		return util.ResMsg{}, channelError
 	}
 
 	network := 0
@@ -81,9 +80,8 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 	h, _ := paramsMap["h"]
 
 	if len(appid) == 0 || len(adid) == 0 || len(pkg) == 0 || len(adtype) == 0 {
-		getReq.ChannelReq.Errorinfo = "请求必需参数部分参数为空"
-		failFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestFailErrorWithText("请求必需参数部分参数为空")
+		return util.ResMsg{}, channelError
 	}
 
 	postData := adreq{
@@ -211,17 +209,15 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 
 	ma, err := json.Marshal(&postData)
 	if err != nil {
-		getReq.ChannelReq.Errorinfo = "请求参数构建失败"
-		failFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestFailErrorError(err)
+		return util.ResMsg{}, channelError
 	}
 
 
 	req, err := http.NewRequest("POST", URL_PRO, bytes.NewReader(ma))
 	if err != nil {
-		getReq.ChannelReq.Errorinfo = "请求构建失败"
-		failFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestFailErrorError(err)
+		return util.ResMsg{}, channelError
 	}
 	req.Header.Set("User-Agent", getReq.Ua)
 	req.Header.Set("X-Forwarded-For", getReq.Ip)
@@ -232,25 +228,24 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 
 	resp, err := util.Client.Do(req)
 	reqFunc(getReq)
-
 	if err != nil {
-		timeoutFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestTimeoutError(err)
+		return util.ResMsg{}, channelError
 	}
 
 	data := []byte{}
 	if strings.Contains(resp.Header.Get("Content-Encoding"), "gzip") {
 		r, err := gzip.NewReader(resp.Body)
 		if err != nil {
-			noFunc(getReq)
-			return util.ResMsg{}
+			channelError := util.NewChannelRequestNoError(err)
+			return util.ResMsg{}, channelError
 		}
 		defer r.Close()
 
 		data, err = ioutil.ReadAll(r)
 		if err != nil {
-			noFunc(getReq)
-			return util.ResMsg{}
+			channelError := util.NewChannelRequestNoError(err)
+			return util.ResMsg{}, channelError
 		}
 		resp.Body.Close()
 	} else {
@@ -259,28 +254,33 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 	}
 
 	if err != nil {
-		noFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestNoError(err)
+		return util.ResMsg{}, channelError
 	}
 
 	if resp.StatusCode != 200 {
-		timeoutFunc(getReq)
-		return util.ResMsg{}
+		code := resp.StatusCode
+		channelError := util.NewChannelRequestNoErrorWithText("状态码为:"+ strconv.Itoa(int(code)))
+		return util.ResMsg{}, channelError
 	}
 
 	resData := &adres{}
-	json.Unmarshal(data, resData)
+	err = json.Unmarshal(data, resData)
+	if err != nil {
+		channelError := util.NewChannelRequestNoError(err)
+		return util.ResMsg{}, channelError
+	}
 
 	if len(resData.Seats) == 0 {
-		noFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestNoErrorWithText("Seats长度为0")
+		return util.ResMsg{}, channelError
 	}
 
 	seats := resData.Seats[0]
 
 	if len(seats.Bids) == 0 {
-		noFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestNoErrorWithText("Bids长度为0")
+		return util.ResMsg{}, channelError
 	}
 
 	ad := seats.Bids[0]
@@ -299,8 +299,8 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 	//flow
 	if adtype == "flow" {
 		if len(ad.Native.Assets) == 0 {
-			noFunc(getReq)
-			return util.ResMsg{}
+			channelError := util.NewChannelRequestNoErrorWithText("ad.Native.Assets长度为0")
+			return util.ResMsg{}, channelError
 		}
 		for _,item := range ad.Native.Assets {
 			itemImg := item.Img
@@ -324,8 +324,8 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 	}
 
 	if len(imgUrl) == 0 {
-		noimgFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelNoImageErrorWithText("图片链接长度为0")
+		return util.ResMsg{}, channelError
 	}
 
 	pos := util.CreateAbScreenPosWHWithOs(getReq.Screenwidth, getReq.Screenheight, adtype, getReq.Os)
@@ -383,12 +383,11 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 	}
 
 	if resultData.ResponseDataIsEmpty(getReq.Adtype) {
-		getReq.ChannelReq.Errorinfo = "数据不完整"
-		noFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestNoErrorWithText("数据不完整")
+		return util.ResMsg{}, channelError
 	}
 
-	return resultData
+	return resultData, nil
 
 }
 

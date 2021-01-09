@@ -5,6 +5,7 @@ import (
 	"github.com/sangshenya/go-channel/util"
 	"io/ioutil"
 	"net/http"
+	"strconv"
 )
 
 const(
@@ -32,7 +33,7 @@ const(
 	SUBPID_ECOOK_A_AF = "3003263355"
 )
 
-func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, noFunc util.ReqNoFunc, timeoutFunc util.ReqTimeoutFunc, noimgFunc util.ReqNoimgFunc, nourlFunc util.ReqNourlFunc) util.ResMsg {
+func Base(getReq *util.ReqMsg, reqFunc util.ReqFunc) (util.ResMsg, util.ChannelErrorProtocol) {
 
 	appid := getReq.ChannelReq.Appid
 	subpid := getReq.ChannelReq.Adid
@@ -42,9 +43,8 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 	appkey, _ := paramsMap["appkey"]
 
 	if len(appid) == 0 || len(subpid) == 0 || len(appsecret) == 0 || len(appkey) == 0 {
-		getReq.ChannelReq.Errorinfo = "请求配置参数不完整"
-		failFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestFailErrorWithText("请求必需参数部分参数为空")
+		return util.ResMsg{}, channelError
 	}
 
 	v := CommonParam("jd.union.open.goods.material.query", appkey, "")
@@ -71,9 +71,8 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 	}
 
 	if len(uid) == 0 {
-		getReq.ChannelReq.Errorinfo = "流量携带参数不完整"
-		failFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestFailErrorWithText("流量携带参数不完整")
+		return util.ResMsg{}, channelError
 	}
 	likeReq := likeJson{GoodsReq:LikeReq{
 		EliteId:    1,
@@ -87,9 +86,8 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 
 	ma, error := json.Marshal(likeReq)
 	if error != nil {
-		getReq.ChannelReq.Errorinfo = error.Error()
-		failFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestFailErrorError(error)
+		return util.ResMsg{}, channelError
 	}
 
 	//fmt.Println(string(ma), appkey, appsecret)
@@ -100,36 +98,35 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 
 	request, error := http.NewRequest("GET", URL + v.Encode(), nil)
 	if error != nil {
-		getReq.ChannelReq.Errorinfo = error.Error()
-		failFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestFailErrorError(error)
+		return util.ResMsg{}, channelError
 	}
 	response, error := util.Client.Do(request)
 	reqFunc(getReq)
 	if error != nil {
-		timeoutFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestTimeoutError(error)
+		return util.ResMsg{}, channelError
 	}
 
 	data, error := ioutil.ReadAll(response.Body)
 	response.Body.Close()
 	if error != nil {
-		noFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestNoError(error)
+		return util.ResMsg{}, channelError
 	}
 
 	//fmt.Println("base2:", string(data))
 	if response.StatusCode != 200 {
-		timeoutFunc(getReq)
-		return util.ResMsg{}
+		code := response.StatusCode
+		channelError := util.NewChannelRequestNoErrorWithText("状态码为:"+ strconv.Itoa(int(code)))
+		return util.ResMsg{}, channelError
 	}
 
 	likeResult := LikeRes{}
 	error = json.Unmarshal(data, &likeResult)
 	if error != nil {
-		getReq.ChannelReq.Errorinfo = error.Error()
-		noFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestNoError(error)
+		return util.ResMsg{}, channelError
 	}
 
 	likeResultData := LikeResultData{}
@@ -137,29 +134,28 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 		//fmt.Println(likeResult.Jd_union_open_goods_material_query_response.Result)
 		error = json.Unmarshal([]byte(likeResult.Jd_union_open_goods_material_query_response.Result), &likeResultData)
 		if error != nil {
-			getReq.ChannelReq.Errorinfo = error.Error()
-			noFunc(getReq)
-			return util.ResMsg{}
+			channelError := util.NewChannelRequestNoError(error)
+			return util.ResMsg{}, channelError
 		}
 	} else {
-		noFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestNoErrorWithText("result长度为0")
+		return util.ResMsg{}, channelError
 	}
 	if likeResultData.Code != 200 {
-		noFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestNoErrorWithText("code错误")
+		return util.ResMsg{}, channelError
 	}
 
 	if len(likeResultData.Data) == 0 {
-		noFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestNoErrorWithText("result.data长度为0")
+		return util.ResMsg{}, channelError
 	}
 
 	likeData := likeResultData.Data[0]
 
 	if len(likeData.ImageInfo.ImageList) == 0 {
-		noimgFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelNoImageErrorWithText("图片链接长度为0")
+		return util.ResMsg{}, channelError
 	}
 
 	postData := util.ResMsg{
@@ -170,10 +166,9 @@ func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, 
 	}
 
 	if postData.ResponseDataIsEmpty(getReq.Adtype) {
-		getReq.ChannelReq.Errorinfo = "数据不完整"
-		noFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestNoErrorWithText("数据不完整")
+		return util.ResMsg{}, channelError
 	}
 
-	return postData
+	return postData, nil
 }

@@ -11,7 +11,7 @@ var adinfo_download = adInfo{
 	ImageUrl: "https://pic.ecook.cn/ad_test_S.jpg",
 }
 
-func DownloadBase(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, noFunc util.ReqNoFunc, timeoutFunc util.ReqTimeoutFunc, noimgFunc util.ReqNoimgFunc, nourlFunc util.ReqNourlFunc) util.ResMsg {
+func DownloadBase(getReq *util.ReqMsg, reqFunc util.ReqFunc) (util.ResMsg, util.ChannelErrorProtocol) {
 	reqFunc(getReq)
 	resultData := util.ResMsg{
 		Id:       util.Md5(util.GetRandom() + time.Now().String()),
@@ -35,30 +35,29 @@ func DownloadBase(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.R
 	}
 
 	if len(resultData.ImageUrl) == 0 {
-		noimgFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelNoImageErrorWithText("图片链接长度为0")
+		return util.ResMsg{}, channelError
 	}
 
 	if len(resultData.Uri) == 0 {
-		nourlFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelNoUrlErrorWithText("图片链接长度为0")
+		return util.ResMsg{}, channelError
 	}
 
 
 	if resultData.ResponseDataIsEmpty(getReq.Adtype) {
-		getReq.ChannelReq.Errorinfo = "数据不完整"
-		noFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestNoErrorWithText("数据不完整")
+		return util.ResMsg{}, channelError
 	}
 
-	return resultData
+	return resultData, nil
 }
 
-func GDTDownloadBase(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, noFunc util.ReqNoFunc, timeoutFunc util.ReqTimeoutFunc, noimgFunc util.ReqNoimgFunc, nourlFunc util.ReqNourlFunc) util.ResMsg {
+func GDTDownloadBase(getReq *util.ReqMsg, reqFunc util.ReqFunc) (util.ResMsg, util.ChannelErrorProtocol) {
 	reqFunc(getReq)
 	if getReq.Os == "2" {
-		noFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestNoErrorWithText("该渠道只支持安卓端")
+		return util.ResMsg{}, channelError
 	}
 	resultData := util.ResMsg{
 		Id:       util.Md5(util.GetRandom() + time.Now().String()),
@@ -78,13 +77,13 @@ func GDTDownloadBase(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc uti
 	}
 
 	if len(resultData.ImageUrl) == 0 {
-		noimgFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelNoImageErrorWithText("图片链接长度为0")
+		return util.ResMsg{}, channelError
 	}
 
 	if len(resultData.Uri) == 0 {
-		nourlFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelNoUrlErrorWithText("图片链接长度为0")
+		return util.ResMsg{}, channelError
 	}
 
 	resultData.Json = true
@@ -95,9 +94,8 @@ func GDTDownloadBase(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc uti
 	resultData.Open = []string{"https://www.baidu.com?IT_CLK_PNT_DOWN_XaaaIT_CLK_PNT_DOWN_YaaaIT_CLK_PNT_UP_XaaaIT_CLK_PNT_UP_Y"}
 
 	if resultData.ResponseDataIsEmpty(getReq.Adtype) {
-		getReq.ChannelReq.Errorinfo = "数据不完整"
-		noFunc(getReq)
-		return util.ResMsg{}
+		channelError := util.NewChannelRequestNoErrorWithText("数据不完整")
+		return util.ResMsg{}, channelError
 	}
-	return resultData
+	return resultData, nil
 }
