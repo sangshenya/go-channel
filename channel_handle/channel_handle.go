@@ -7,6 +7,7 @@ import (
 	"github.com/sangshenya/go-channel/oneway"
 	"github.com/sangshenya/go-channel/qrqm"
 	"github.com/sangshenya/go-channel/shjy"
+	"github.com/sangshenya/go-channel/tbrta"
 	"github.com/sangshenya/go-channel/test"
 	"github.com/sangshenya/go-channel/uc"
 	"github.com/sangshenya/go-channel/util"
@@ -57,6 +58,7 @@ var(
 		"qrqm":qrqm.Base,
 		"dongqiudi":dongqiudi.Base,
 		"jdlm":jdlm.Base,
+		"tbrta":tbrta.Base,
 	}
 )
 
