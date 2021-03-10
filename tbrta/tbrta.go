@@ -26,7 +26,7 @@ const(
 
 func Base(getReq *util.ReqMsg, failFunc util.ReqFailFunc, reqFunc util.ReqFunc, noFunc util.ReqNoFunc, timeoutFunc util.ReqTimeoutFunc, noimgFunc util.ReqNoimgFunc, nourlFunc util.ReqNourlFunc) util.ResMsg {
 
-	if getReq.ChannelReq.Adtype != "startup" {
+	if getReq.ChannelReq.Adtype != "startup" && getReq.ChannelReq.Adtype != "splashad" {
 		getReq.ChannelReq.Errorinfo = "不支持的广告请求类型"
 		failFunc(getReq)
 		return util.ResMsg{}
