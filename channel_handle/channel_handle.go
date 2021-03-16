@@ -59,6 +59,7 @@ var(
 		"dongqiudi":dongqiudi.Base,
 		"jdlm":jdlm.Base,
 		"tbrta":tbrta.Base,
+		"tbrtaa":tbrta.Base2,
 	}
 )
 

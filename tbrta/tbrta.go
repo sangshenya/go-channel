@@ -25,7 +25,7 @@ const(
 )
 
 func Base(getReq *util.ReqMsg, reqFunc util.ReqFunc) (util.ResMsg, util.ChannelErrorProtocol) {
-	if getReq.ChannelReq.Adtype != "startup" {
+	if getReq.ChannelReq.Adtype != "startup" && getReq.ChannelReq.Adtype != "splashad" {
 		channelError := util.NewChannelRequestFailErrorWithText("不支持的广告请求类型")
 		return util.ResMsg{}, channelError
 	}
@@ -46,6 +46,33 @@ func Base(getReq *util.ReqMsg, reqFunc util.ReqFunc) (util.ResMsg, util.ChannelE
 		ImageUrl: "https://img.admobile.top/admobile-adRequest/tb_zsp.png",
 		Uri:      "https://star-link.taobao.com?bc_fl_src=growth_dhh_4183462252_100-12768-32896&dpa_Inid=3289610158&dpa_material_id=635763217806&dpa_material_type=1&dpa_source_code=10158&force_no_smb=true&itemIds=635763217806&slk_actid=100000000207&spm=2014.ugdhh.4183462252.100-12768-32896&wh_biz=tm",
 		Scheme:   "taobao://m.taobao.com/tbopen/index.html?action=ali.open.nav&bc_fl_src=growth_dhh_4183462252_100-12768-32896&bootImage=0&dpa_Inid=3289610158&dpa_material_id=635763217806&dpa_material_type=1&dpa_source_code=10158&force_no_smb=true&itemIds=635763217806&module=h5&slk_actid=100000000207&source=auto&spm=2014.ugdhh.4183462252.100-12768-32896&wh_biz=tm&h5Url=https://star-link.taobao.com?bc_fl_src%3Dgrowth_dhh_4183462252_100-12768-32896%26dpa_Inid%3D3289610158%26dpa_material_id%3D635763217806%26dpa_material_type%3D1%26dpa_source_code%3D10158%26force_no_smb%3Dtrue%26itemIds%3D635763217806%26slk_actid%3D100000000207%26spm%3D2014.ugdhh.4183462252.100-12768-32896%26wh_biz%3Dtm",
+	}
+
+	return resultData, nil
+}
+
+func Base2(getReq *util.ReqMsg, reqFunc util.ReqFunc) (util.ResMsg, util.ChannelErrorProtocol) {
+	if getReq.ChannelReq.Adtype != "flow" {
+		channelError := util.NewChannelRequestFailErrorWithText("不支持的广告请求类型")
+		return util.ResMsg{}, channelError
+	}
+
+	reqFunc(getReq)
+
+	if TaobaoTarget(getReq) {
+		channelError := util.NewChannelRequestNoErrorWithText("淘宝rta定向不匹配")
+		return util.ResMsg{}, channelError
+	}
+
+	resultData := util.ResMsg{
+		Id:       util.Md5(util.GetRandom() + time.Now().String()),
+		Weight:   0,
+		State:    0,
+		Title:    "广告",
+		Content:  "广告",
+		ImageUrl: "https://img.admobile.top/admobile-adRequest/tbdhhwflow_rta.jpg",
+		Uri:      "https://star-link.taobao.com?bc_fl_src=growth_dhh_4183462252_100-21253-32896&dpa_Inid=3289610158&dpa_material_id=635763217806&dpa_material_type=1&dpa_source_code=10158&force_no_smb=true&itemIds=635763217806&slk_actid=100000000207&spm=2014.ugdhh.4183462252.100-21253-32896&wh_biz=tm",
+		Scheme:   "tbopen://m.taobao.com/tbopen/index.html?action=ali.open.nav&bc_fl_src=growth_dhh_4183462252_100-21253-32896&bootImage=0&dpa_Inid=3289610158&dpa_material_id=635763217806&dpa_material_type=1&dpa_source_code=10158&force_no_smb=true&itemIds=635763217806&module=h5&slk_actid=100000000207&source=auto&spm=2014.ugdhh.4183462252.100-21253-32896&wh_biz=tm&h5Url=https://star-link.taobao.com?bc_fl_src%3Dgrowth_dhh_4183462252_100-21253-32896%26dpa_Inid%3D3289610158%26dpa_material_id%3D635763217806%26dpa_material_type%3D1%26dpa_source_code%3D10158%26force_no_smb%3Dtrue%26itemIds%3D635763217806%26slk_actid%3D100000000207%26spm%3D2014.ugdhh.4183462252.100-21253-32896%26wh_biz%3Dtm",
 	}
 
 	return resultData, nil
