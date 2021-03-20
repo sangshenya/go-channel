@@ -78,6 +78,60 @@ func Base2(getReq *util.ReqMsg, reqFunc util.ReqFunc) (util.ResMsg, util.Channel
 	return resultData, nil
 }
 
+func Base3(getReq *util.ReqMsg, reqFunc util.ReqFunc) (util.ResMsg, util.ChannelErrorProtocol) {
+	if getReq.ChannelReq.Adtype != "flow" {
+		channelError := util.NewChannelRequestFailErrorWithText("不支持的广告请求类型")
+		return util.ResMsg{}, channelError
+	}
+
+	reqFunc(getReq)
+
+	if TaobaoTarget(getReq) {
+		channelError := util.NewChannelRequestNoErrorWithText("淘宝rta定向不匹配")
+		return util.ResMsg{}, channelError
+	}
+
+	resultData := util.ResMsg{
+		Id:       util.Md5(util.GetRandom() + time.Now().String()),
+		Weight:   0,
+		State:    0,
+		Title:    "广告",
+		Content:  "广告",
+		ImageUrl: "https://img.admobile.top/admobile-adRequest/dhh_320_f.jpg",
+		Uri:      "https://star-link.taobao.com?bc_fl_src=growth_dhh_4183462252_100-13678-32896&dpa_Inid=3289610158&dpa_material_id=616836040200&dpa_material_type=1&dpa_source_code=10158&force_no_smb=true&itemIds=616836040200&slk_actid=100000000207&spm=2014.ugdhh.4183462252.100-13678-32896&wh_biz=tm",
+		Scheme:   "tbopen://m.taobao.com/tbopen/index.html?action=ali.open.nav&bc_fl_src=growth_dhh_4183462252_100-13678-32896&bootImage=0&dpa_Inid=3289610158&dpa_material_id=616836040200&dpa_material_type=1&dpa_source_code=10158&force_no_smb=true&itemIds=616836040200&module=h5&slk_actid=100000000207&source=auto&spm=2014.ugdhh.4183462252.100-13678-32896&wh_biz=tm&h5Url=https://star-link.taobao.com?bc_fl_src%3Dgrowth_dhh_4183462252_100-13678-32896%26dpa_Inid%3D3289610158%26dpa_material_id%3D616836040200%26dpa_material_type%3D1%26dpa_source_code%3D10158%26force_no_smb%3Dtrue%26itemIds%3D616836040200%26slk_actid%3D100000000207%26spm%3D2014.ugdhh.4183462252.100-13678-32896%26wh_biz%3Dtm",
+	}
+
+	return resultData, nil
+}
+
+func Base4(getReq *util.ReqMsg, reqFunc util.ReqFunc) (util.ResMsg, util.ChannelErrorProtocol) {
+	if getReq.ChannelReq.Adtype != "startup" && getReq.ChannelReq.Adtype != "splashad" {
+		channelError := util.NewChannelRequestFailErrorWithText("不支持的广告请求类型")
+		return util.ResMsg{}, channelError
+	}
+
+	reqFunc(getReq)
+
+	if TaobaoTarget(getReq) {
+		channelError := util.NewChannelRequestNoErrorWithText("淘宝rta定向不匹配")
+		return util.ResMsg{}, channelError
+	}
+
+	resultData := util.ResMsg{
+		Id:       util.Md5(util.GetRandom() + time.Now().String()),
+		Weight:   0,
+		State:    0,
+		Title:    "广告",
+		Content:  "广告",
+		ImageUrl: "https://img.admobile.top/admobile-adRequest/dhh_320_s.jpg",
+		Uri:      "https://star-link.taobao.com?bc_fl_src=growth_dhh_4183462252_100-12768-32896&dpa_Inid=3289610158&dpa_material_id=616836040200&dpa_material_type=1&dpa_source_code=10158&force_no_smb=true&itemIds=616836040200&slk_actid=100000000207&spm=2014.ugdhh.4183462252.100-12768-32896&wh_biz=tm",
+		Scheme:   "tbopen://m.taobao.com/tbopen/index.html?action=ali.open.nav&bc_fl_src=growth_dhh_4183462252_100-12768-32896&bootImage=0&dpa_Inid=3289610158&dpa_material_id=616836040200&dpa_material_type=1&dpa_source_code=10158&force_no_smb=true&itemIds=616836040200&module=h5&slk_actid=100000000207&source=auto&spm=2014.ugdhh.4183462252.100-12768-32896&wh_biz=tm&h5Url=https://star-link.taobao.com?bc_fl_src%3Dgrowth_dhh_4183462252_100-12768-32896%26dpa_Inid%3D3289610158%26dpa_material_id%3D616836040200%26dpa_material_type%3D1%26dpa_source_code%3D10158%26force_no_smb%3Dtrue%26itemIds%3D616836040200%26slk_actid%3D100000000207%26spm%3D2014.ugdhh.4183462252.100-12768-32896%26wh_biz%3Dtm",
+	}
+
+	return resultData, nil
+}
+
 func TaobaoTarget(getReq *util.ReqMsg) bool {
 	adres := TaobaoRta(getReq, CHANNEL, ADID_ECOOK_A_S, APPKEY_ECOOK, APPSECRET_ECOOK)
 

@@ -60,6 +60,8 @@ var(
 		"jdlm":jdlm.Base,
 		"tbrta":tbrta.Base,
 		"tbrtaa":tbrta.Base2,
+		"tbrtab":tbrta.Base3,
+		"tbrtac":tbrta.Base4,
 	}
 )
 
